@@ -49,7 +49,7 @@ export const MinimalistHero = ({
   return (
     <div
       className={cn(
-        'relative flex min-h-screen w-full flex-col items-center justify-between overflow-hidden bg-background px-6 py-6 font-sans md:px-12 md:py-8',
+        'relative flex min-h-screen w-full flex-col items-center justify-between overflow-x-hidden bg-background px-6 py-6 font-sans md:px-12 md:py-8',
         className
       )}
     >
@@ -105,12 +105,12 @@ export const MinimalistHero = ({
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="absolute z-0 h-[360px] w-[360px] rounded-full bg-blue-600/90 sm:h-[460px] sm:w-[460px] md:h-[560px] md:w-[560px] lg:h-[640px] lg:w-[640px]"
+            className="absolute z-0 h-[280px] w-[280px] rounded-full bg-blue-600/90 sm:h-[340px] sm:w-[340px] md:h-[380px] md:w-[380px] lg:h-[420px] lg:w-[420px]"
           />
           <motion.img
             src={imageSrc}
             alt={imageAlt}
-            className="relative z-10 h-auto w-[320px] object-contain sm:w-[420px] md:w-[500px] lg:w-[580px]"
+            className="relative z-10 w-auto object-contain h-[420px] sm:h-[520px] md:h-[640px] lg:h-[750px]"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
