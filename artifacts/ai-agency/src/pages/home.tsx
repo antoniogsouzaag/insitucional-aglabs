@@ -1,6 +1,7 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 import { MinimalistHero } from '@/components/ui/minimalist-hero';
+import AboutSection from '@/components/ui/about-section';
 import { VerticalTabs } from '@/components/ui/vertical-tabs';
 
 const HomePage = () => {
@@ -34,6 +35,7 @@ const HomePage = () => {
         socialLinks={socialLinks}
         locationText="Brasil"
       />
+      <AboutSection />
       <div id="services">
         <VerticalTabs />
       </div>
