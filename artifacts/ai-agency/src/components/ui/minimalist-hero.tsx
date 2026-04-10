@@ -100,12 +100,12 @@ export const MinimalistHero = ({
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="absolute z-0 h-[300px] w-[300px] rounded-full bg-blue-600/90 md:h-[400px] md:w-[400px] lg:h-[500px] lg:w-[500px]"
+            className="absolute z-0 h-[380px] w-[380px] rounded-full bg-blue-600/90 md:h-[520px] md:w-[520px] lg:h-[640px] lg:w-[640px]"
           ></motion.div>
           <motion.img
             src={imageSrc}
             alt={imageAlt}
-            className="relative z-10 h-auto w-56 object-cover md:w-64 scale-150 lg:w-72"
+            className="relative z-10 h-auto w-80 object-cover md:w-96 scale-150 lg:w-[480px]"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
