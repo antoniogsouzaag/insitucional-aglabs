@@ -6,90 +6,131 @@ import { motion } from "framer-motion"
 
 export default function AboutSection() {
   return (
-    <section className="py-20 md:py-28 bg-background" id="sobre">
-      <div className="mx-auto max-w-7xl space-y-16 px-6 md:px-8 lg:px-12 xl:px-20">
+    <div className="flex flex-col">
 
-        <div className="grid gap-6 text-center md:grid-cols-2 md:gap-12 md:text-left">
-          <div>
-            <span className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.3em] block mb-3">
-              (SOBRE NÓS)
-            </span>
-            <h2 className="tracking-tighter text-3xl font-medium md:text-4xl lg:text-5xl text-foreground text-balance">
-              Transformamos complexidade em resultado
+      {/* ---------------- HERO SECTION ---------------- */}
+      <section className="py-16 md:py-28 bg-background">
+        <div className="mx-auto max-w-6xl space-y-2 px-6">
+          <img
+            className="rounded-xl object-cover w-full h-[240px] md:h-[460px]"
+            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200"
+            alt="AG LABS - Inteligência Artificial"
+          />
+
+          <div className="grid gap-6 md:grid-cols-2 md:gap-12 pt-6">
+            <h2 className="text-3xl md:text-4xl font-semibold text-white leading-snug">
+              O ecossistema{" "}
+              <span className="text-blue-500">AG LABS</span>{" "}
+              <span className="text-gray-400">
+                une modelos, produtos e plataformas de IA.
+              </span>
             </h2>
+            <div className="space-y-6 text-muted-foreground">
+              <p>
+                A AG LABS evolui além dos modelos. Construímos um ecossistema completo — de produtos a APIs e plataformas que ajudam empresas e desenvolvedores a inovar com inteligência artificial.
+              </p>
+              <Button
+                asChild
+                variant="secondary"
+                size="sm"
+                className="gap-1 pr-1.5"
+              >
+                <a href="#">
+                  <span>Saiba Mais</span>
+                  <ChevronRight className="size-4" />
+                </a>
+              </Button>
+            </div>
           </div>
-          <p className="text-muted-foreground text-base leading-relaxed self-end">
-            A AG LABS é uma agência especializada em inteligência artificial. Combinamos tecnologia de ponta com design estratégico para construir sistemas que realmente funcionam — e geram resultado para o seu negócio.
-          </p>
         </div>
+      </section>
 
-        <div className="flex flex-col md:flex-row gap-6">
+      {/* ---------------- ABOUT SECTION ---------------- */}
+      <section className="py-20 md:py-28">
+        <div className="mx-auto max-w-6xl space-y-16 px-6">
 
-          <div className="md:flex-1">
-            <img
-              src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200"
-              alt="AG LABS - Inteligência Artificial"
-              className="rounded-2xl object-cover w-full h-[300px] sm:h-[360px] md:h-full min-h-[400px]"
-            />
+          {/* Header */}
+          <div className="grid gap-6 text-center md:grid-cols-2 md:gap-12 md:text-left">
+            <h2 className="text-4xl md:text-5xl font-semibold text-white">
+              Sobre Nós
+            </h2>
+            <p className="text-muted-foreground">
+              A AG LABS é uma equipe apaixonada por criar soluções inovadoras que capacitam negócios a prosperar na era digital com inteligência artificial.
+            </p>
           </div>
 
-          <div className="flex flex-col gap-6 md:flex-1">
+          {/* ---------------- THREE CARDS LAYOUT ---------------- */}
+          <div className="flex flex-col md:flex-row gap-6 mt-16">
 
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 250, damping: 20 }}
-              className="relative overflow-hidden rounded-2xl bg-zinc-950 text-white shadow-lg border border-white/5"
-            >
+            {/* LEFT BIG IMAGE */}
+            <div className="md:flex-1">
+              <img
+                src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800"
+                alt="AG LABS"
+                className="rounded-xl object-cover w-full h-[300px] sm:h-[360px] md:h-full"
+              />
+            </div>
+
+            {/* RIGHT TWO CARDS */}
+            <div className="flex flex-col gap-6 md:flex-1">
+
+              {/* FIRST CARD */}
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.4 }}
-                className="relative h-52 w-full overflow-hidden"
+                whileHover={{ scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 250, damping: 20 }}
+                className="relative overflow-hidden rounded-xl bg-black text-white shadow-lg"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                  className="relative h-60 sm:h-64 md:h-48 w-full overflow-hidden"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=600"
+                    alt="Acelere o crescimento"
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute bottom-0 h-32 w-full bg-gradient-to-t from-black via-black/70 to-transparent" />
+                </motion.div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold">Acelere o Crescimento</h3>
+                  <p className="mt-2 text-sm text-gray-300">
+                    Nossas soluções impulsionam inovação, eficiência e resultados mensuráveis para empresas.
+                  </p>
+                  <Button
+                    variant="outline"
+                    className="mt-4 border-white text-black dark:text-white hover:bg-white hover:text-black"
+                  >
+                    Saiba Mais
+                  </Button>
+                </div>
+              </motion.div>
+
+              {/* SECOND CARD */}
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 250, damping: 20 }}
+                className="relative overflow-hidden rounded-xl bg-muted shadow-lg"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=800"
-                  alt="Agentes Autônomos"
-                  className="h-full w-full object-cover"
+                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600"
+                  alt="Design de Alto Desempenho"
+                  className="h-full w-full object-cover min-h-[220px] sm:min-h-[240px] md:min-h-[220px]"
                 />
-                <div className="absolute bottom-0 h-28 w-full bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white">
+                  <h3 className="text-xl font-bold">Design Pronto para o Futuro</h3>
+                  <p className="mt-2 text-sm text-gray-200">
+                    Interfaces intuitivas e escaláveis para negócios modernos combinando estética e funcionalidade.
+                  </p>
+                </div>
               </motion.div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold">Velocidade com Precisão</h3>
-                <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
-                  Entregamos projetos de IA com agilidade e qualidade — do conceito ao deploy em produção.
-                </p>
-                <Button
-                  variant="outline"
-                  className="mt-4 border-white/20 text-white hover:bg-white hover:text-black"
-                >
-                  Saiba Mais
-                  <ChevronRight className="size-4" />
-                </Button>
-              </div>
-            </motion.div>
 
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 250, damping: 20 }}
-              className="relative overflow-hidden rounded-2xl shadow-lg border border-white/5"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800"
-                alt="Interfaces de Alto Desempenho"
-                className="h-full w-full object-cover min-h-[200px]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-xl font-semibold text-white">Design para Converter</h3>
-                <p className="mt-2 text-sm text-zinc-300 leading-relaxed">
-                  Interfaces modernas e escaláveis que unem estética e performance para negócios digitais.
-                </p>
-              </div>
-            </motion.div>
-
+            </div>
           </div>
-        </div>
 
-      </div>
-    </section>
+        </div>
+      </section>
+
+    </div>
   )
 }
