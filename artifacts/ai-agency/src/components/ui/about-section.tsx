@@ -13,7 +13,7 @@ export default function AboutSection() {
         <div className="mx-auto max-w-6xl space-y-2 px-6">
           <img
             className="rounded-xl object-cover w-full h-[240px] md:h-[460px]"
-            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200"
+            src="https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/ruixen_hero_gradient.jpg"
             alt="AG LABS - Inteligência Artificial"
           />
 
