@@ -23,7 +23,7 @@ const HomePage = () => {
       navLinks={navLinks}
       mainText="Agentes autônomos, sistemas inteligentes e interfaces de alto desempenho para o crescimento do seu negócio."
       readMoreLink="#"
-      imageSrc="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/aglabs/1.jpeg"
+      imageSrc="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/aglabs/2.png"
       imageAlt="AG LABS - Agência de Inteligência Artificial"
       overlayText={{
         part1: 'Simples e',

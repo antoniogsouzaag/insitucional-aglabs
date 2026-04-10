@@ -91,7 +91,7 @@ export const MinimalistHero = ({
         >
           <p className="mx-auto max-w-xs text-sm leading-relaxed text-foreground/80 md:mx-0">{mainText}</p>
           <a href={readMoreLink} className="mt-4 inline-block text-sm font-medium text-foreground underline decoration-from-font">
-            Read More
+            Saiba Mais
           </a>
         </motion.div>
 
@@ -123,7 +123,7 @@ export const MinimalistHero = ({
           transition={{ duration: 0.6, delay: 1.2 }}
           className="z-20 order-3 flex items-center justify-center text-center md:justify-start"
         >
-          <h1 className="text-7xl font-extrabold text-foreground md:text-8xl lg:text-9xl">
+          <h1 className="text-4xl font-extrabold text-foreground md:text-5xl lg:text-6xl">
             {overlayText.part1}
             <br />
             {overlayText.part2}
