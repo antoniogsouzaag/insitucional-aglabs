@@ -49,7 +49,7 @@ export const MinimalistHero = ({
   return (
     <div
       className={cn(
-        'relative flex min-h-screen w-full flex-col items-center justify-between overflow-x-hidden bg-background px-6 py-6 font-sans md:px-12 md:py-8',
+        'relative flex h-screen w-full flex-col items-center justify-between overflow-hidden bg-background px-6 py-6 font-sans md:px-12 md:py-8',
         className
       )}
     >
@@ -100,17 +100,17 @@ export const MinimalistHero = ({
         </motion.div>
 
         {/* Center: image + circle */}
-        <div className="relative order-1 md:order-2 flex justify-center items-center w-full">
+        <div className="relative order-1 md:order-2 flex justify-center items-center w-full h-full">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="absolute z-0 h-[280px] w-[280px] rounded-full bg-blue-600/90 sm:h-[340px] sm:w-[340px] md:h-[380px] md:w-[380px] lg:h-[420px] lg:w-[420px]"
+            className="absolute z-0 h-[260px] w-[260px] rounded-full bg-blue-600/90 sm:h-[300px] sm:w-[300px] md:h-[340px] md:w-[340px] lg:h-[380px] lg:w-[380px]"
           />
           <motion.img
             src={imageSrc}
             alt={imageAlt}
-            className="relative z-10 w-auto object-contain h-[420px] sm:h-[520px] md:h-[640px] lg:h-[900px]"
+            className="relative z-10 w-56 object-contain md:w-64 lg:w-72 scale-[1.5] md:scale-[1.7] lg:scale-[2.1]"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
