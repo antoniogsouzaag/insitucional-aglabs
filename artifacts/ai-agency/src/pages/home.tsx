@@ -19,18 +19,18 @@ const HomePage = () => {
 
   return (
     <MinimalistHero
-      logoText="mnmlst."
+      logoText="AG LABS"
       navLinks={navLinks}
-      mainText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices, justo vel tempus."
+      mainText="Agentes autônomos, sistemas inteligentes e interfaces de alto desempenho para o crescimento do seu negócio."
       readMoreLink="#"
-      imageSrc="https://ik.imagekit.io/fpxbgsota/image%2013.png?updatedAt=1753531863793"
-      imageAlt="A portrait of a person in a black turtleneck, in profile."
+      imageSrc="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/aglabs/1.jpeg"
+      imageAlt="AG LABS - Agência de Inteligência Artificial"
       overlayText={{
-        part1: 'less is',
-        part2: 'more.',
+        part1: 'Simples e',
+        part2: 'Inteligente.',
       }}
       socialLinks={socialLinks}
-      locationText="Arlington Heights, IL"
+      locationText="Brasil"
     />
   );
 };

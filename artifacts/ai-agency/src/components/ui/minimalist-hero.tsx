@@ -100,7 +100,7 @@ export const MinimalistHero = ({
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="absolute z-0 h-[300px] w-[300px] rounded-full bg-yellow-400/90 md:h-[400px] md:w-[400px] lg:h-[500px] lg:w-[500px]"
+            className="absolute z-0 h-[300px] w-[300px] rounded-full bg-blue-600/90 md:h-[400px] md:w-[400px] lg:h-[500px] lg:w-[500px]"
           ></motion.div>
           <motion.img
             src={imageSrc}
