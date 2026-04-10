@@ -49,15 +49,16 @@ export const MinimalistHero = ({
   return (
     <div
       className={cn(
-        'relative flex h-screen w-full flex-col items-center justify-between overflow-hidden bg-background p-8 font-sans md:p-12',
+        'relative flex min-h-screen w-full flex-col items-center justify-between overflow-hidden bg-background px-6 py-6 font-sans md:px-12 md:py-8',
         className
       )}
     >
+      {/* Header */}
       <header className="z-30 flex w-full max-w-7xl items-center justify-between">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
           className="text-xl font-bold tracking-wider"
         >
           {logoText}
@@ -72,7 +73,7 @@ export const MinimalistHero = ({
         <motion.button
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
           className="flex flex-col space-y-1.5 md:hidden"
           aria-label="Open menu"
         >
@@ -82,60 +83,74 @@ export const MinimalistHero = ({
         </motion.button>
       </header>
 
-      <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center md:grid-cols-3">
+      {/* Main Content */}
+      <div className="relative flex w-full max-w-7xl flex-grow flex-col items-center justify-center gap-8 md:grid md:grid-cols-3 md:items-center md:gap-0">
+
+        {/* Left: description text — desktop only */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1 }}
-          className="z-20 order-2 md:order-1 text-center md:text-left"
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="z-20 hidden md:block md:order-1 text-left self-center"
         >
-          <p className="mx-auto max-w-xs text-sm leading-relaxed text-foreground/80 md:mx-0">{mainText}</p>
+          <p className="max-w-[220px] text-sm leading-relaxed text-foreground/70">{mainText}</p>
           <a href={readMoreLink} className="mt-4 inline-block text-sm font-medium text-foreground underline decoration-from-font">
             Saiba Mais
           </a>
         </motion.div>
 
-        <div className="relative order-1 md:order-2 flex justify-center items-center h-full">
+        {/* Center: image + circle */}
+        <div className="relative order-1 md:order-2 flex justify-center items-center w-full">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="absolute z-0 h-[380px] w-[380px] rounded-full bg-blue-600/90 md:h-[520px] md:w-[520px] lg:h-[640px] lg:w-[640px]"
-          ></motion.div>
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            className="absolute z-0 h-[260px] w-[260px] rounded-full bg-blue-600/90 sm:h-[320px] sm:w-[320px] md:h-[360px] md:w-[360px] lg:h-[400px] lg:w-[400px]"
+          />
           <motion.img
             src={imageSrc}
             alt={imageAlt}
-            className="relative z-10 h-auto w-80 object-cover md:w-96 scale-150 lg:w-[480px]"
-            initial={{ opacity: 0, y: 50 }}
+            className="relative z-10 h-auto w-[220px] object-contain sm:w-[270px] md:w-[300px] lg:w-[360px]"
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.onerror = null;
-              target.src = `https://placehold.co/400x600/eab308/ffffff?text=Image+Not+Found`;
+              target.src = `https://placehold.co/400x500/2563eb/ffffff?text=AG+LABS`;
             }}
           />
         </div>
 
+        {/* Right: headline */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-          className="z-20 order-3 flex items-center justify-center text-center md:justify-start"
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="z-20 order-2 md:order-3 flex flex-col items-center text-center md:items-start md:text-left gap-4 self-center"
         >
-          <h1 className="text-4xl font-extrabold text-foreground md:text-5xl lg:text-6xl">
+          <h1 className="text-5xl font-extrabold leading-tight text-foreground sm:text-6xl md:text-5xl lg:text-6xl xl:text-7xl">
             {overlayText.part1}
             <br />
             {overlayText.part2}
           </h1>
+
+          {/* Mobile-only description */}
+          <div className="md:hidden">
+            <p className="max-w-xs text-sm leading-relaxed text-foreground/70">{mainText}</p>
+            <a href={readMoreLink} className="mt-3 inline-block text-sm font-medium text-foreground underline decoration-from-font">
+              Saiba Mais
+            </a>
+          </div>
         </motion.div>
       </div>
 
-      <footer className="z-30 flex w-full max-w-7xl items-center justify-between">
+      {/* Footer */}
+      <footer className="z-30 flex w-full max-w-7xl items-center justify-between pt-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.2 }}
+          transition={{ duration: 0.4, delay: 0.5 }}
           className="flex items-center space-x-4"
         >
           {socialLinks.map((link, index) => (
@@ -143,10 +158,10 @@ export const MinimalistHero = ({
           ))}
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.3 }}
-          className="text-sm font-medium text-foreground/80"
+          transition={{ duration: 0.4, delay: 0.5 }}
+          className="text-sm font-medium text-foreground/70"
         >
           {locationText}
         </motion.div>
