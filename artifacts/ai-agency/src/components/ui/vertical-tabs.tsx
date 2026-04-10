@@ -87,7 +87,7 @@ export function VerticalTabs() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
           {/* Left Column: Content */}
-          <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1 pt-4">
+          <div className="lg:col-span-5 flex flex-col justify-center order-1 lg:order-1 pt-4">
             <div className="space-y-1 mb-10 md:mb-12">
               <h2 className="tracking-tighter text-balance text-3xl font-medium md:text-4xl lg:text-5xl text-foreground">
                 Como podemos te ajudar
@@ -168,7 +168,7 @@ export function VerticalTabs() {
           </div>
 
           {/* Right Column: Image */}
-          <div className="lg:col-span-7 flex flex-col justify-end h-full order-1 lg:order-2">
+          <div className="lg:col-span-7 flex flex-col justify-end h-full order-2 lg:order-2">
             <div
               className="relative group/gallery"
               onMouseEnter={() => setIsPaused(true)}
