@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { ButtonCta } from "@/components/ui/button-shiny";
+import { HoverButton } from "@/components/ui/hover-button";
 
 interface Cta4Props {
   title?: string;
@@ -35,12 +35,9 @@ export const Cta4 = ({
                   href={buttonUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block"
+                  className="inline-block mt-2"
                 >
-                  <ButtonCta
-                    label={buttonText}
-                    className="w-fit text-sm h-11 px-6"
-                  />
+                  <HoverButton>{buttonText}</HoverButton>
                 </a>
               </div>
               <div className="md:w-5/12">
