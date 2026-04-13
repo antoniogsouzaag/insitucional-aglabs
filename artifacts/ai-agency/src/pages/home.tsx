@@ -2,7 +2,7 @@ import React from 'react';
 import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 import { MinimalistHero } from '@/components/ui/minimalist-hero';
 import AboutSection from '@/components/ui/about-section';
-import { VerticalTabs } from '@/components/ui/vertical-tabs';
+import { FeatureCarousel } from '@/components/ui/feature-carousel';
 import ElegantCarousel from '@/components/ui/elegant-carousel';
 
 const HomePage = () => {
@@ -37,9 +37,9 @@ const HomePage = () => {
         locationText="Brasil"
       />
       <AboutSection />
-      <div id="services">
-        <VerticalTabs />
-      </div>
+      <section id="services" className="w-full bg-background py-8 md:py-16 lg:py-24">
+        <FeatureCarousel />
+      </section>
       <div id="cases">
         <ElegantCarousel />
       </div>
