@@ -2,12 +2,29 @@
 import React from 'react';
 import type { ComponentProps, ReactNode } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { FacebookIcon, InstagramIcon, LinkedinIcon, TwitterIcon } from 'lucide-react';
+import { FacebookIcon, InstagramIcon, LinkedinIcon } from 'lucide-react';
+
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.258 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
+    </svg>
+  );
+}
+
+function smoothScrollTo(href: string) {
+  if (!href.startsWith('#') || href === '#') return;
+  const target = document.querySelector(href);
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
 
 interface FooterLink {
   title: string;
   href: string;
   icon?: React.ComponentType<{ className?: string }>;
+  external?: boolean;
 }
 
 interface FooterSection {
@@ -28,8 +45,8 @@ const footerLinks: FooterSection[] = [
   {
     label: 'Serviços',
     links: [
-      { title: 'Corporate Agent', href: 'https://rag.aglabs.api.br/' },
-      { title: 'Websites que Vendem', href: 'https://lp.aglabs.ia.br/' },
+      { title: 'Corporate Agent', href: 'https://rag.aglabs.api.br/', external: true },
+      { title: 'Websites que Vendem', href: 'https://lp.aglabs.ia.br/', external: true },
       { title: 'Software Performance', href: '#' },
       { title: 'Workflows Inteligence', href: '#' },
     ],
@@ -38,21 +55,49 @@ const footerLinks: FooterSection[] = [
     label: 'Empresa',
     links: [
       { title: 'Sobre a AG LABS', href: '#sobre-nos' },
-      { title: 'Política de Privacidade', href: '#' },
-      { title: 'Termos de Uso', href: '#' },
-      { title: 'Contato', href: '#' },
+      { title: 'Política de Privacidade', href: '/politica-de-privacidade' },
+      { title: 'Termos de Uso', href: '/termos-de-uso' },
     ],
   },
   {
     label: 'Redes Sociais',
     links: [
-      { title: 'Facebook', href: '#', icon: FacebookIcon },
-      { title: 'Instagram', href: '#', icon: InstagramIcon },
-      { title: 'Twitter', href: '#', icon: TwitterIcon },
-      { title: 'LinkedIn', href: '#', icon: LinkedinIcon },
+      { title: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61573483665476', icon: FacebookIcon, external: true },
+      { title: 'Instagram', href: 'https://www.instagram.com/ag_labs', icon: InstagramIcon, external: true },
+      { title: 'X (Twitter)', href: 'https://x.com/aglabsrv', icon: XIcon, external: true },
+      { title: 'LinkedIn', href: 'https://www.linkedin.com/company/ag-labs', icon: LinkedinIcon, external: true },
     ],
   },
 ];
+
+function FooterLink({ link }: { link: FooterLink }) {
+  const isHash = link.href.startsWith('#');
+  const isExternal = link.external || link.href.startsWith('http');
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isHash) {
+      e.preventDefault();
+      if (link.href === '#') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        smoothScrollTo(link.href);
+      }
+    }
+  };
+
+  return (
+    <a
+      href={link.href}
+      onClick={handleClick}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
+      className="hover:text-white inline-flex items-center gap-1.5 transition-all duration-300"
+    >
+      {link.icon && <link.icon className="size-4 flex-shrink-0" />}
+      {link.title}
+    </a>
+  );
+}
 
 export function Footer() {
   return (
@@ -78,15 +123,7 @@ export function Footer() {
                 <ul className="text-muted-foreground mt-4 space-y-2 text-sm">
                   {section.links.map((link) => (
                     <li key={link.title}>
-                      <a
-                        href={link.href}
-                        target={link.href.startsWith('http') ? '_blank' : undefined}
-                        rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="hover:text-white inline-flex items-center transition-all duration-300"
-                      >
-                        {link.icon && <link.icon className="me-1.5 size-4" />}
-                        {link.title}
-                      </a>
+                      <FooterLink link={link} />
                     </li>
                   ))}
                 </ul>
