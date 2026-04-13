@@ -20,6 +20,7 @@ import ElegantCarousel from "@/components/ui/elegant-carousel";
 import TechMarquee from "@/components/ui/tech-marquee";
 import { Footer } from "@/components/ui/footer-section";
 import { Radar, IconContainer } from "@/components/ui/radar-effect";
+import FeatureSections from "@/components/ui/feature-sections";
 
 const HomePage = () => {
   const navLinks = [
@@ -149,6 +150,7 @@ const HomePage = () => {
         </div>
       </section>
 
+      <FeatureSections />
       <Footer />
     </>
   );
