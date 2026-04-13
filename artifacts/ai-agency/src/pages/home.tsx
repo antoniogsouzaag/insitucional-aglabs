@@ -37,8 +37,8 @@ const HomePage = () => {
         socialLinks={socialLinks}
         locationText="Brasil"
       />
-      <AboutSection />
       <TechMarquee />
+      <AboutSection />
       <section id="services" className="w-full bg-background py-8 md:py-16 lg:py-24">
         <FeatureCarousel />
       </section>

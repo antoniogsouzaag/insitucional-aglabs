@@ -20,14 +20,14 @@ export default function AboutSection() {
             <h2 className="text-3xl md:text-4xl font-semibold text-white leading-snug">
               O ecossistema <span className="text-blue-500">AG LABS</span>{" "}
               <span className="text-gray-400">
-                une modelos, produtos e plataformas de IA.
+                une agentes, produtos e plataformas.
               </span>
             </h2>
             <div className="space-y-6 text-muted-foreground">
               <p>
-                A AG LABS evolui além dos modelos. Construímos um ecossistema
+                A AG LABS vai além dos modelos. Construímos um ecossistema
                 completo — de produtos a APIs e plataformas que ajudam empresas
-                e desenvolvedores a inovar com inteligência artificial.
+                a inovar com inteligência artificial.
               </p>
               <Button
                 asChild
@@ -54,7 +54,7 @@ export default function AboutSection() {
               Sobre Nós
             </h2>
             <p className="text-muted-foreground">
-              A AG LABS é uma equipe apaixonada por criar soluções inovadoras
+              A AG LABS é uma equipe especializada em criar soluções inovadoras
               que capacitam negócios a prosperar na era digital com inteligência
               artificial.
             </p>

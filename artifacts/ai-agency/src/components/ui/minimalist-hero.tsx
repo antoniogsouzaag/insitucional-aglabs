@@ -19,9 +19,23 @@ interface MinimalistHeroProps {
   className?: string;
 }
 
+function smoothScrollTo(href: string) {
+  if (!href.startsWith('#')) return;
+  const target = document.querySelector(href);
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a
     href={href}
+    onClick={(e) => {
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        smoothScrollTo(href);
+      }
+    }}
     className="text-sm font-medium tracking-widest text-foreground/60 transition-colors hover:text-foreground"
   >
     {children}
@@ -59,6 +73,7 @@ export const MinimalistHero = ({
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
+          style={{ willChange: 'transform, opacity' }}
           className="text-xl font-bold tracking-wider"
         >
           {logoText}
@@ -74,6 +89,7 @@ export const MinimalistHero = ({
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
+          style={{ willChange: 'transform, opacity' }}
           className="flex flex-col space-y-1.5 md:hidden"
           aria-label="Open menu"
         >
@@ -90,11 +106,21 @@ export const MinimalistHero = ({
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          style={{ willChange: 'transform, opacity' }}
           className="z-20 hidden md:block md:order-1 text-left self-center"
         >
           <p className="max-w-[220px] text-sm leading-relaxed text-foreground/70">{mainText}</p>
-          <a href={readMoreLink} className="mt-4 inline-block text-sm font-medium text-foreground underline decoration-from-font">
+          <a
+            href={readMoreLink}
+            onClick={(e) => {
+              if (readMoreLink.startsWith('#')) {
+                e.preventDefault();
+                smoothScrollTo(readMoreLink);
+              }
+            }}
+            className="mt-4 inline-block text-sm font-medium text-foreground underline decoration-from-font"
+          >
             Saiba Mais
           </a>
         </motion.div>
@@ -105,6 +131,7 @@ export const MinimalistHero = ({
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            style={{ willChange: 'transform, opacity' }}
             className="absolute z-0 h-[310px] w-[310px] rounded-full bg-blue-600/90 sm:h-[360px] sm:w-[360px] md:h-[410px] md:w-[410px] lg:h-[456px] lg:w-[456px]"
           />
           <motion.img
@@ -114,6 +141,9 @@ export const MinimalistHero = ({
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+            style={{ willChange: 'transform, opacity' }}
+            loading="eager"
+            decoding="async"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.onerror = null;
@@ -126,7 +156,8 @@ export const MinimalistHero = ({
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          style={{ willChange: 'transform, opacity' }}
           className="z-20 order-2 md:order-3 flex flex-col items-center text-center md:items-start md:text-left gap-4 self-center"
         >
           <h1 className="text-5xl font-extrabold leading-tight text-foreground sm:text-6xl md:text-5xl lg:text-6xl xl:text-7xl">
@@ -138,7 +169,16 @@ export const MinimalistHero = ({
           {/* Mobile-only description */}
           <div className="md:hidden">
             <p className="max-w-xs text-sm leading-relaxed text-foreground/70">{mainText}</p>
-            <a href={readMoreLink} className="mt-3 inline-block text-sm font-medium text-foreground underline decoration-from-font">
+            <a
+              href={readMoreLink}
+              onClick={(e) => {
+                if (readMoreLink.startsWith('#')) {
+                  e.preventDefault();
+                  smoothScrollTo(readMoreLink);
+                }
+              }}
+              className="mt-3 inline-block text-sm font-medium text-foreground underline decoration-from-font"
+            >
               Saiba Mais
             </a>
           </div>
@@ -150,7 +190,8 @@ export const MinimalistHero = ({
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          style={{ willChange: 'transform, opacity' }}
           className="flex items-center space-x-4"
         >
           {socialLinks.map((link, index) => (
@@ -160,7 +201,8 @@ export const MinimalistHero = ({
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          style={{ willChange: 'transform, opacity' }}
           className="text-sm font-medium text-foreground/70"
         >
           {locationText}
