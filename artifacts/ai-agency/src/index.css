@@ -224,13 +224,11 @@
 .carousel-wrapper {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   overflow: hidden;
   background: hsl(var(--background));
-  padding: 5rem 2rem 7rem;
 }
 
 .carousel-bg-wash {
@@ -241,13 +239,16 @@
 }
 
 .carousel-inner {
+  flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: center;
+  gap: 4rem;
+  align-items: stretch;
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
+  padding: 5rem 3rem 4rem;
+  min-height: 0;
 }
 
 .carousel-content {
@@ -388,14 +389,16 @@
 .carousel-image-container {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
+  min-height: 0;
 }
 
 .carousel-image-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 3/4;
+  height: 100%;
+  min-height: 0;
   border-radius: 1rem;
   overflow: hidden;
   opacity: 0;
