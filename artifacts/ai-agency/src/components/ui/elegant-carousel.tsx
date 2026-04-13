@@ -7,6 +7,7 @@ interface SlideData {
   description: string;
   accent: string;
   imageUrl: string;
+  link?: string;
 }
 
 const slides: SlideData[] = [
@@ -18,6 +19,7 @@ const slides: SlideData[] = [
     accent: "#C4956A",
     imageUrl:
       "https://i.pinimg.com/1200x/56/b7/30/56b730aaf1ad04fdf08ae410dd19aef0.jpg",
+    link: "https://lp.aglabs.ia.br/",
   },
   {
     title: "Corporate Agent",
@@ -27,6 +29,7 @@ const slides: SlideData[] = [
     accent: "#8BA7B8",
     imageUrl:
       "https://i.pinimg.com/1200x/dc/fe/5d/dcfe5d7bfb8856e2be985dcfb0bffe04.jpg",
+    link: "https://rag.aglabs.api.br/",
   },
   {
     title: "Software Performance",
@@ -163,7 +166,18 @@ export default function ElegantCarousel() {
             <h2
               className={`carousel-title ${isTransitioning ? "transitioning" : "visible"}`}
             >
-              {currentSlide.title}
+              {currentSlide.link ? (
+                <a
+                  href={currentSlide.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
+                >
+                  {currentSlide.title}
+                </a>
+              ) : (
+                currentSlide.title
+              )}
             </h2>
 
             {/* Subtitle */}
@@ -224,11 +238,26 @@ export default function ElegantCarousel() {
           <div
             className={`carousel-image-frame ${isTransitioning ? "transitioning" : "visible"}`}
           >
-            <img
-              src={currentSlide.imageUrl}
-              alt={currentSlide.title}
-              className="carousel-image"
-            />
+            {currentSlide.link ? (
+              <a
+                href={currentSlide.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full h-full"
+              >
+                <img
+                  src={currentSlide.imageUrl}
+                  alt={currentSlide.title}
+                  className="carousel-image hover:opacity-90 transition-opacity cursor-pointer"
+                />
+              </a>
+            ) : (
+              <img
+                src={currentSlide.imageUrl}
+                alt={currentSlide.title}
+                className="carousel-image"
+              />
+            )}
             <div
               className="carousel-image-overlay"
               style={{
