@@ -229,7 +229,7 @@ const LOGOS = [
   {
     src: "https://cdn.simpleicons.org/cloudflare/F38020",
     alt: "Cloudflare Logo",
-    height: 28,
+    height: 30,
   },
   {
     src: "https://cdn.simpleicons.org/brevo/006A43",

@@ -51,12 +51,12 @@ export default function AboutSection() {
           {/* Header */}
           <div className="grid gap-6 text-center md:grid-cols-2 md:gap-12 md:text-left">
             <h2 className="text-4xl md:text-5xl font-semibold text-white">
-              Sobre Nós
+              Transformando Negócios
             </h2>
             <p className="text-muted-foreground">
-              A AG LABS é uma equipe especializada em criar soluções inovadoras
-              que capacitam negócios a prosperar na era digital com inteligência
-              artificial.
+              Fundada por Antônio Garcia, a AG LABS conta com uma equipe
+              especializada em criar soluções inovadoras que capacitam negócios
+              a prosperar na era digital com inteligência artificial.
             </p>
           </div>
 
@@ -94,7 +94,7 @@ export default function AboutSection() {
                 <div className="p-6">
                   <h3 className="text-xl font-bold">Acelere o Crescimento</h3>
                   <p className="mt-2 text-sm text-gray-300">
-                    Nossas soluções impulsionam inovação, eficiência e
+                    Nossas soluções e agentes impulsionam inovação, eficiência e
                     resultados mensuráveis para empresas.
                   </p>
                   <Button
