@@ -20,7 +20,7 @@ interface MinimalistHeroProps {
 }
 
 function smoothScrollTo(href: string) {
-  if (!href.startsWith('#')) return;
+  if (!href.startsWith('#') || href === '#') return;
   const target = document.querySelector(href);
   if (target) {
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
