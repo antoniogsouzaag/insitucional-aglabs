@@ -5,6 +5,7 @@ import AboutSection from "@/components/ui/about-section";
 import { FeatureCarousel } from "@/components/ui/feature-carousel";
 import ElegantCarousel from "@/components/ui/elegant-carousel";
 import TechMarquee from "@/components/ui/tech-marquee";
+import { Footer } from "@/components/ui/footer-section";
 
 const HomePage = () => {
   const navLinks = [
@@ -60,6 +61,7 @@ const HomePage = () => {
       <div id="cases">
         <ElegantCarousel />
       </div>
+      <Footer />
     </>
   );
 };
