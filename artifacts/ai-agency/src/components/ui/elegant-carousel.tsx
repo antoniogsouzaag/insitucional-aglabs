@@ -11,10 +11,10 @@ interface SlideData {
 
 const slides: SlideData[] = [
   {
-    title: "E-commerce com IA",
-    subtitle: "Varejo / Automação",
+    title: "Websites que vendem",
+    subtitle: "Infraestrutura digital",
     description:
-      "Implementamos sistemas e automações que buscam usuários em tempo real — aumentando a conversão e o ticket médio logo no primeiro trimestre.",
+      "Construímos a base digital do seu negócio — páginas, sistemas e automações conectadas — para transformar operações em máquinas previsíveis de aquisição e crescimento.",
     accent: "#C4956A",
     imageUrl:
       "https://i.pinimg.com/1200x/56/b7/30/56b730aaf1ad04fdf08ae410dd19aef0.jpg",
