@@ -73,5 +73,9 @@
     "vite": "catalog:",
     "wouter": "^3.3.5",
     "zod": "catalog:"
+  },
+  "dependencies": {
+    "motion": "^12.38.0",
+    "react-use-measure": "^2.1.7"
   }
 }
