@@ -1,5 +1,18 @@
 import React from "react";
-import { Facebook, Instagram, Twitter, Linkedin, Bot, Globe, Zap, Database, Code2, Brain, Network, Cpu } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin,
+  Bot,
+  Globe,
+  Zap,
+  Database,
+  Code2,
+  Brain,
+  Network,
+  Cpu,
+} from "lucide-react";
 import { MinimalistHero } from "@/components/ui/minimalist-hero";
 import AboutSection from "@/components/ui/about-section";
 import { FeatureCarousel } from "@/components/ui/feature-carousel";
@@ -65,12 +78,17 @@ const HomePage = () => {
       {/* CTA Radar Section */}
       <section className="relative w-full bg-background py-16 md:py-24 overflow-hidden border-t border-border/30">
         <div className="mx-auto max-w-4xl px-6 text-center mb-12">
-          <p className="text-xs font-semibold uppercase tracking-widest text-blue-500 mb-4">Inteligência Artificial</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-blue-500 mb-4">
+            IA + WebDesign
+          </p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-            Coloque sua empresa no radar<br className="hidden md:block" /> dos seus clientes
+            Coloque seu negócio no radar
+            <br className="hidden md:block" /> dos seus clientes
           </h2>
           <p className="mt-5 text-muted-foreground max-w-xl mx-auto">
-            Combinamos agentes de IA, automações e interfaces de alto desempenho para que o seu negócio seja encontrado, lembrado e escolhido.
+            Combine agentes de IA, automações e interfaces de alto desempenho
+            para que o seu negócio evolua, seja encontrado, lembrado e
+            escolhido.
           </p>
         </div>
 
@@ -78,23 +96,51 @@ const HomePage = () => {
           {/* Row 1 */}
           <div className="mx-auto w-full max-w-3xl">
             <div className="flex w-full items-center justify-center space-x-10 md:justify-between md:space-x-0">
-              <IconContainer text="Agentes de IA" delay={0.2} icon={<Bot className="h-6 w-6 text-blue-400" />} />
-              <IconContainer text="Presença Digital" delay={0.4} icon={<Globe className="h-6 w-6 text-blue-400" />} />
-              <IconContainer text="Automações" delay={0.3} icon={<Zap className="h-6 w-6 text-blue-400" />} />
+              <IconContainer
+                text="Agentes de IA"
+                delay={0.2}
+                icon={<Bot className="h-6 w-6 text-blue-400" />}
+              />
+              <IconContainer
+                text="Presença Digital"
+                delay={0.4}
+                icon={<Globe className="h-6 w-6 text-blue-400" />}
+              />
+              <IconContainer
+                text="Automações"
+                delay={0.3}
+                icon={<Zap className="h-6 w-6 text-blue-400" />}
+              />
             </div>
           </div>
           {/* Row 2 */}
           <div className="mx-auto w-full max-w-md">
             <div className="flex w-full items-center justify-center space-x-10 md:justify-between md:space-x-0">
-              <IconContainer text="Dados & Analytics" delay={0.5} icon={<Database className="h-6 w-6 text-blue-400" />} />
-              <IconContainer text="Redes Neurais" delay={0.8} icon={<Brain className="h-6 w-6 text-blue-400" />} />
+              <IconContainer
+                text="Dados & Analytics"
+                delay={0.5}
+                icon={<Database className="h-6 w-6 text-blue-400" />}
+              />
+              <IconContainer
+                text="Redes Neurais"
+                delay={0.8}
+                icon={<Brain className="h-6 w-6 text-blue-400" />}
+              />
             </div>
           </div>
           {/* Row 3 */}
           <div className="mx-auto w-full max-w-3xl">
             <div className="flex w-full items-center justify-center space-x-10 md:justify-between md:space-x-0">
-              <IconContainer text="Integrações" delay={0.6} icon={<Network className="h-6 w-6 text-blue-400" />} />
-              <IconContainer text="Software" delay={0.7} icon={<Code2 className="h-6 w-6 text-blue-400" />} />
+              <IconContainer
+                text="Integrações"
+                delay={0.6}
+                icon={<Network className="h-6 w-6 text-blue-400" />}
+              />
+              <IconContainer
+                text="Software"
+                delay={0.7}
+                icon={<Code2 className="h-6 w-6 text-blue-400" />}
+              />
             </div>
           </div>
 
