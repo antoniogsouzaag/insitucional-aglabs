@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { animate, motion, useMotionValue } from 'framer-motion';
-import React, { CSSProperties, useEffect, useRef, useState } from 'react';
-import { type ClassValue, clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { animate, motion, useMotionValue } from "framer-motion";
+import React, { CSSProperties, useEffect, useRef, useState } from "react";
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 function useMeasure() {
   const ref = useRef<HTMLDivElement>(null);
@@ -11,7 +11,10 @@ function useMeasure() {
   useEffect(() => {
     if (!ref.current) return;
     const observer = new ResizeObserver(([entry]) => {
-      setSize({ width: entry.contentRect.width, height: entry.contentRect.height });
+      setSize({
+        width: entry.contentRect.width,
+        height: entry.contentRect.height,
+      });
     });
     observer.observe(ref.current);
     return () => observer.disconnect();
@@ -28,7 +31,7 @@ type InfiniteSliderProps = {
   gap?: number;
   speed?: number;
   speedOnHover?: number;
-  direction?: 'horizontal' | 'vertical';
+  direction?: "horizontal" | "vertical";
   reverse?: boolean;
   className?: string;
 };
@@ -38,7 +41,7 @@ function InfiniteSlider({
   gap = 16,
   speed = 100,
   speedOnHover,
-  direction = 'horizontal',
+  direction = "horizontal",
   reverse = false,
   className,
 }: InfiniteSliderProps) {
@@ -50,7 +53,7 @@ function InfiniteSlider({
 
   useEffect(() => {
     let controls: ReturnType<typeof animate> | undefined;
-    const size = direction === 'horizontal' ? width : height;
+    const size = direction === "horizontal" ? width : height;
     if (size === 0) return;
 
     const contentSize = size + gap;
@@ -64,7 +67,7 @@ function InfiniteSlider({
       const remainingDistance = Math.abs(translation.get() - to);
       const transitionDuration = remainingDistance / currentSpeed;
       controls = animate(translation, [translation.get(), to], {
-        ease: 'linear',
+        ease: "linear",
         duration: transitionDuration,
         onComplete: () => {
           setIsTransitioning(false);
@@ -73,10 +76,10 @@ function InfiniteSlider({
       });
     } else {
       controls = animate(translation, [from, to], {
-        ease: 'linear',
+        ease: "linear",
         duration: duration,
         repeat: Infinity,
-        repeatType: 'loop',
+        repeatType: "loop",
         repeatDelay: 0,
         onRepeat: () => {
           translation.set(from);
@@ -85,7 +88,17 @@ function InfiniteSlider({
     }
 
     return () => controls?.stop();
-  }, [key, translation, currentSpeed, width, height, gap, isTransitioning, direction, reverse]);
+  }, [
+    key,
+    translation,
+    currentSpeed,
+    width,
+    height,
+    gap,
+    isTransitioning,
+    direction,
+    reverse,
+  ]);
 
   const hoverProps = speedOnHover
     ? {
@@ -101,16 +114,19 @@ function InfiniteSlider({
     : {};
 
   return (
-    <div className={cn('overflow-hidden', className)}>
+    <div className={cn("overflow-hidden", className)}>
       <motion.div
         className="flex w-max"
         style={{
-          ...(direction === 'horizontal' ? { x: translation } : { y: translation }),
+          ...(direction === "horizontal"
+            ? { x: translation }
+            : { y: translation }),
           gap: `${gap}px`,
-          flexDirection: direction === 'horizontal' ? 'row' : 'column',
+          flexDirection: direction === "horizontal" ? "row" : "column",
         }}
         ref={ref}
-        {...hoverProps}>
+        {...hoverProps}
+      >
         {children}
         {children}
       </motion.div>
@@ -135,26 +151,91 @@ function BlurredInfiniteSlider({
   };
 
   return (
-    <div className={cn('relative w-full', containerClassName)} style={maskStyle}>
+    <div
+      className={cn("relative w-full", containerClassName)}
+      style={maskStyle}
+    >
       <InfiniteSlider {...sliderProps}>{children}</InfiniteSlider>
     </div>
   );
 }
 
 const LOGOS = [
-  { src: 'https://cdn.simpleicons.org/supabase/3ECF8E', alt: 'Supabase Logo', height: 24 },
-  { src: 'https://cdn.simpleicons.org/docker/2496ED', alt: 'Docker Logo', height: 24 },
-  { src: 'https://cdn.simpleicons.org/nextdotjs/ffffff', alt: 'Next.js Logo', height: 20 },
-  { src: 'https://cdn.simpleicons.org/nodedotjs/5FA04E', alt: 'Node.js Logo', height: 22 },
-  { src: 'https://cdn.simpleicons.org/n8n/EA4B71', alt: 'n8n Logo', height: 20 },
-  { src: 'https://cdn.simpleicons.org/react/61DAFB', alt: 'React Logo', height: 22 },
-  { src: 'https://cdn.simpleicons.org/typescript/3178C6', alt: 'TypeScript Logo', height: 22 },
-  { src: 'https://cdn.simpleicons.org/anthropic/ffffff', alt: 'Anthropic Logo', height: 20 },
-  { src: 'https://cdn.simpleicons.org/googlegemini/8E75B2', alt: 'Google Gemini Logo', height: 22 },
-  { src: 'https://cdn.simpleicons.org/github/ffffff', alt: 'GitHub Logo', height: 20 },
-  { src: 'https://cdn.simpleicons.org/python/3776AB', alt: 'Python Logo', height: 22 },
-  { src: 'https://cdn.simpleicons.org/postgresql/4169E1', alt: 'PostgreSQL Logo', height: 22 },
-  { src: 'https://cdn.simpleicons.org/vercel/ffffff', alt: 'Vercel Logo', height: 20 },
+  {
+    src: "https://cdn.simpleicons.org/supabase/3ECF8E",
+    alt: "Supabase Logo",
+    height: 24,
+  },
+  {
+    src: "https://cdn.simpleicons.org/docker/2496ED",
+    alt: "Docker Logo",
+    height: 24,
+  },
+  {
+    src: "https://cdn.simpleicons.org/nextdotjs/ffffff",
+    alt: "Next.js Logo",
+    height: 22,
+  },
+  {
+    src: "https://cdn.simpleicons.org/nodedotjs/5FA04E",
+    alt: "Node.js Logo",
+    height: 24,
+  },
+  {
+    src: "https://cdn.simpleicons.org/n8n/EA4B71",
+    alt: "n8n Logo",
+    height: 24,
+  },
+  {
+    src: "https://cdn.simpleicons.org/react/61DAFB",
+    alt: "React Logo",
+    height: 24,
+  },
+  {
+    src: "https://cdn.simpleicons.org/typescript/3178C6",
+    alt: "TypeScript Logo",
+    height: 22,
+  },
+  {
+    src: "https://cdn.simpleicons.org/claude/DE7356",
+    alt: "Claude Logo",
+    height: 22,
+  },
+  {
+    src: "https://cdn.simpleicons.org/clerk/ffffff",
+    alt: "Clerk Logo",
+    height: 22,
+  },
+  {
+    src: "https://cdn.simpleicons.org/github/ffffff",
+    alt: "GitHub Logo",
+    height: 22,
+  },
+  {
+    src: "https://cdn.simpleicons.org/python/3776AB",
+    alt: "Python Logo",
+    height: 22,
+  },
+  {
+    src: "https://cdn.simpleicons.org/postgresql/4169E1",
+    alt: "PostgreSQL Logo",
+    height: 22,
+  },
+  {
+    src: "https://cdn.simpleicons.org/vercel/ffffff",
+    alt: "Vercel Logo",
+    height: 20,
+  },
+  {
+    src: "https://cdn.simpleicons.org/cloudflare/F38020",
+    alt: "Cloudflare Logo",
+    height: 28,
+  },
+  {
+    src: "https://cdn.simpleicons.org/brevo/006A43",
+    alt: "Brevo Logo",
+    height: 28,
+  },
 ];
 
 export default function TechMarquee() {
@@ -164,7 +245,7 @@ export default function TechMarquee() {
         <div className="flex flex-col items-center md:flex-row">
           <div className="flex-shrink-0 text-center md:text-right md:max-w-44 md:border-r md:border-gray-200 dark:md:border-gray-800 md:pr-6">
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Tecnologias que dominamos
+              Tech Stack
             </p>
           </div>
           <div className="w-full py-6 md:w-auto md:flex-1">

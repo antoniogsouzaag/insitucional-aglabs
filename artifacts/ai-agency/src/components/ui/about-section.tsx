@@ -26,8 +26,8 @@ export default function AboutSection() {
             <div className="space-y-6 text-muted-foreground">
               <p>
                 A AG LABS vai além dos modelos. Construímos um ecossistema
-                completo — de produtos a APIs e plataformas que ajudam empresas
-                a inovar com inteligência artificial.
+                completo — de agentes a APIs e plataformas que ajudam empresas a
+                inovar com inteligência artificial.
               </p>
               <Button
                 asChild
