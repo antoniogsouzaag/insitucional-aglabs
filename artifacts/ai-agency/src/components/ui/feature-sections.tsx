@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export default function FeatureSections() {
   return (
     <>
@@ -9,53 +7,6 @@ export default function FeatureSections() {
           font-family: 'Poppins', sans-serif;
         }
       `}</style>
-
-      <section className="w-full py-16">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h1 className="text-3xl font-semibold">Powerful Features</h1>
-          <p className="text-sm text-slate-500 mt-2">
-            Everything you need to manage, track, and grow your finances, securely and efficiently.
-          </p>
-        </div>
-
-        <div className="flex flex-wrap items-start justify-center gap-10">
-          <div className="max-w-80 hover:-translate-y-0.5 transition duration-300">
-            <img
-              className="rounded-xl"
-              src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/features/image-1.png"
-              alt=""
-            />
-            <h3 className="text-base font-semibold text-slate-700 mt-4">Feedback analyser</h3>
-            <p className="text-sm text-slate-600 mt-1">
-              Get instant insights into your finances with live dashboards.
-            </p>
-          </div>
-
-          <div className="max-w-80 hover:-translate-y-0.5 transition duration-300">
-            <img
-              className="rounded-xl"
-              src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/features/image-2.png"
-              alt=""
-            />
-            <h3 className="text-base font-semibold text-slate-700 mt-4">User management</h3>
-            <p className="text-sm text-slate-600 mt-1">
-              Get instant insights into your finances with live dashboards.
-            </p>
-          </div>
-
-          <div className="max-w-80 hover:-translate-y-0.5 transition duration-300">
-            <img
-              className="rounded-xl"
-              src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/features/image-3.png"
-              alt=""
-            />
-            <h3 className="text-base font-semibold text-slate-700 mt-4">Better invoicing</h3>
-            <p className="text-sm text-slate-600 mt-1">
-              Get instant insights into your finances with live dashboards.
-            </p>
-          </div>
-        </div>
-      </section>
 
       <div className="flex flex-col md:flex-row items-center">
         <img className="max-w-2xl w-full" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/features/group-image-1.png" alt="" />
@@ -67,8 +18,8 @@ export default function FeatureSections() {
               </svg>
             </div>
             <div className="space-y-2">
-              <h3 className="text-base font-semibold text-slate-700">Real-Time Analytics</h3>
-              <p className="text-sm text-slate-600">Get instant insights into your finances with live dashboards.</p>
+              <h3 className="text-base font-semibold text-slate-700">Resultados em Tempo Real</h3>
+              <p className="text-sm text-slate-600">Métricas e performance acompanhados ao vivo com dashboards alimentados por IA.</p>
             </div>
           </div>
           <div className="flex items-center justify-center gap-6 max-w-md">
@@ -79,8 +30,8 @@ export default function FeatureSections() {
               </svg>
             </div>
             <div className="space-y-2">
-              <h3 className="text-base font-semibold text-slate-700">Bank-Grade Security</h3>
-              <p className="text-sm text-slate-600">End-to-end encryption, 2FA, compliance with GDPR standards.</p>
+              <h3 className="text-base font-semibold text-slate-700">Segurança & Privacidade</h3>
+              <p className="text-sm text-slate-600">Infraestrutura com criptografia ponta a ponta e conformidade com a LGPD.</p>
             </div>
           </div>
           <div className="flex items-center justify-center gap-6 max-w-md">
@@ -91,8 +42,8 @@ export default function FeatureSections() {
               </svg>
             </div>
             <div className="space-y-2">
-              <h3 className="text-base font-semibold text-slate-700">Customizable Reports</h3>
-              <p className="text-sm text-slate-600">Export professional, audit-ready financial reports for tax or internal review.</p>
+              <h3 className="text-base font-semibold text-slate-700">Relatórios Personalizados</h3>
+              <p className="text-sm text-slate-600">Exporte relatórios profissionais de desempenho, ROI e crescimento para qualquer stakeholder.</p>
             </div>
           </div>
         </div>
