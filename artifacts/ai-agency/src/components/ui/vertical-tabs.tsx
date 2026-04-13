@@ -80,13 +80,7 @@ export function VerticalTabs() {
   return (
     <section className="w-full bg-background py-8 md:py-16 lg:py-24">
       <div className="w-full px-6 md:px-8 lg:px-12 xl:px-20 mx-auto max-w-7xl">
-        {/*
-          items-stretch (default): both columns share the same fixed height
-          driven by the image aspect-ratio. The left column expands its
-          description WITHIN that already-established height, so the section
-          never changes size — no page jump.
-        */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
           {/* Left Column — fills the same height as the image column */}
           <div className="lg:col-span-5 flex flex-col justify-center order-1 lg:order-1">
@@ -171,13 +165,13 @@ export function VerticalTabs() {
             </div>
           </div>
 
-          {/* Right Column: Image — aspect-ratio sets the fixed height for the whole grid */}
+          {/* Right Column: sticky so it stays put while the left column animates */}
           <div
-            className="lg:col-span-7 order-2 lg:order-2"
+            className="lg:col-span-7 order-2 lg:order-2 lg:sticky lg:top-24"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            <div className="relative aspect-4/5 md:aspect-4/3 lg:aspect-16/11 rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-muted/30 border border-border/40 h-full">
+            <div className="relative aspect-4/5 md:aspect-4/3 lg:aspect-16/11 rounded-3xl md:rounded-[2.5rem] overflow-hidden bg-muted/30 border border-border/40">
               <AnimatePresence initial={false} custom={direction} mode="popLayout">
                 <motion.div
                   key={activeIndex}
