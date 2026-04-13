@@ -21,6 +21,7 @@ import TechMarquee from "@/components/ui/tech-marquee";
 import { Footer } from "@/components/ui/footer-section";
 import { Radar, IconContainer } from "@/components/ui/radar-effect";
 import FeatureSections from "@/components/ui/feature-sections";
+import { Cta4 } from "@/components/ui/cta-4";
 
 const HomePage = () => {
   const navLinks = [
@@ -151,6 +152,7 @@ const HomePage = () => {
       </section>
 
       <FeatureSections />
+      <Cta4 />
       <Footer />
     </>
   );
