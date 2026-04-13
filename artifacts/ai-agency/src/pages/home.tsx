@@ -4,6 +4,7 @@ import { MinimalistHero } from '@/components/ui/minimalist-hero';
 import AboutSection from '@/components/ui/about-section';
 import { FeatureCarousel } from '@/components/ui/feature-carousel';
 import ElegantCarousel from '@/components/ui/elegant-carousel';
+import TechMarquee from '@/components/ui/tech-marquee';
 
 const HomePage = () => {
   const navLinks = [
@@ -37,6 +38,7 @@ const HomePage = () => {
         locationText="Brasil"
       />
       <AboutSection />
+      <TechMarquee />
       <section id="services" className="w-full bg-background py-8 md:py-16 lg:py-24">
         <FeatureCarousel />
       </section>
