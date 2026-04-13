@@ -9,9 +9,9 @@ import TechMarquee from '@/components/ui/tech-marquee';
 const HomePage = () => {
   const navLinks = [
     { label: 'HOME', href: '#' },
-    { label: 'SERVICOS', href: '#services' },
-    { label: 'CASES', href: '#' },
-    { label: 'SOBRE NOS', href: '#' },
+    { label: 'SOBRE NÓS', href: '#sobre-nos' },
+    { label: 'SERVIÇOS', href: '#services' },
+    { label: 'CASES', href: '#cases' },
   ];
 
   const socialLinks = [
@@ -40,6 +40,10 @@ const HomePage = () => {
       <TechMarquee />
       <AboutSection />
       <section id="services" className="w-full bg-background py-8 md:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 mb-10 md:mb-14">
+          <h2 className="text-4xl md:text-5xl font-semibold text-white">Nossos Serviços</h2>
+          <p className="mt-3 text-muted-foreground max-w-xl">Soluções sob medida para impulsionar o seu negócio com inteligência artificial.</p>
+        </div>
         <FeatureCarousel />
       </section>
       <div id="cases">

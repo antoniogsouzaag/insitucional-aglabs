@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 
 export default function AboutSection() {
   return (
-    <div className="flex flex-col">
+    <div id="sobre-nos" className="flex flex-col">
       {/* ---------------- HERO SECTION ---------------- */}
-      <section className="py-16 md:py-28 bg-background">
+      <section className="pt-0 pb-16 md:pb-28 bg-background">
         <div className="mx-auto max-w-6xl space-y-2 px-6">
           <img
             className="rounded-xl object-cover w-full h-[240px] md:h-[460px]"
