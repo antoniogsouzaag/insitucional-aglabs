@@ -21,71 +21,87 @@ const FEATURES = [
     id: "agents",
     label: "Agentes Autônomos",
     icon: Bot,
-    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=1200",
+    image:
+      "https://i.pinimg.com/736x/22/5e/d6/225ed64777b68c6108f4894f3da7c662.jpg",
     description: "IAs que trabalham 24/7 automatizando decisões e operações.",
   },
   {
     id: "automation",
     label: "Automação de Processos",
     icon: Wand2,
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200",
-    description: "Elimine tarefas repetitivas e ganhe escala sem aumentar equipe.",
+    image:
+      "https://i.pinimg.com/1200x/c7/b0/8a/c7b08a12b8de7d123d2a7a0fcd3da650.jpg",
+    description:
+      "Elimine tarefas repetitivas e ganhe escala sem aumentar equipe.",
   },
   {
     id: "generative",
     label: "IA Generativa",
     icon: Lightbulb,
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200",
-    description: "Conteúdo, código e insights gerados por modelos de última geração.",
+    image:
+      "https://i.pinimg.com/736x/4f/4a/11/4f4a1110573077a5ed78066f7dc10b4d.jpg",
+    description:
+      "Conteúdo, código e insights gerados por modelos de última geração.",
   },
   {
     id: "analytics",
     label: "Análise Preditiva",
     icon: BarChart2,
-    image: "https://images.unsplash.com/photo-1551288049-bbda38a10ad5?q=80&w=1200",
+    image:
+      "https://i.pinimg.com/1200x/b7/7a/42/b77a4264911d8cd2e5756fb1eed222f0.jpg",
     description: "Antecipe tendências e tome decisões baseadas em dados reais.",
   },
   {
     id: "integration",
     label: "Integração de Sistemas",
     icon: Network,
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200",
-    description: "Conectamos ferramentas, APIs e dados em um único fluxo inteligente.",
+    image:
+      "https://i.pinimg.com/1200x/43/8c/40/438c40ba655ffde56fe17ae18029a766.jpg",
+    description:
+      "Conectamos ferramentas, APIs e dados em um único fluxo inteligente.",
   },
   {
     id: "security",
     label: "Segurança & Compliance",
     icon: Shield,
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200",
-    description: "Proteção de dados e conformidade com LGPD e padrões enterprise.",
+    image:
+      "https://i.pinimg.com/736x/e3/cf/07/e3cf07daebe1f8ab5fd3ee4b1ddae08a.jpg",
+    description:
+      "Proteção de dados e conformidade com LGPD e padrões enterprise.",
   },
   {
     id: "cloud",
     label: "Cloud & Escalabilidade",
     icon: Cloud,
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200",
+    image:
+      "https://i.pinimg.com/736x/4e/af/87/4eaf876784b933ad9c17cc03944a8ff3.jpg",
     description: "Infraestrutura sob demanda que cresce com o seu negócio.",
   },
   {
     id: "interfaces",
     label: "Interfaces Inteligentes",
     icon: Layers,
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200",
-    description: "UX de alto desempenho integrada com IA para máxima conversão.",
+    image:
+      "https://i.pinimg.com/1200x/4c/02/a9/4c02a97b1d03151e93fa1fd6f8c6193c.jpg",
+    description: "UX de alto desempenho integrada para máxima conversão.",
   },
   {
     id: "global",
     label: "Alcance Global",
     icon: Globe,
-    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1200",
-    description: "Soluções prontas para operar em múltiplos mercados e idiomas.",
+    image:
+      "https://i.pinimg.com/736x/4e/e6/4d/4ee64d10e48c9bb92145ca6715f15e92.jpg",
+    description:
+      "Soluções prontas para operar em múltiplos mercados e idiomas.",
   },
   {
     id: "results",
     label: "Resultados Mensuráveis",
     icon: CheckCircle2,
-    image: "https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2?q=80&w=1200",
-    description: "Cada entrega com KPIs claros e ROI rastreável desde o primeiro dia.",
+    image:
+      "https://i.pinimg.com/736x/d0/e3/45/d0e345fee5e315782ba616f8aca45d2c.jpg",
+    description:
+      "Cada entrega com relatórios claros e rastreáveis desde o primeiro dia.",
   },
 ];
 
@@ -134,7 +150,6 @@ export function FeatureCarousel() {
   return (
     <div className="w-full max-w-7xl mx-auto md:p-8">
       <div className="relative overflow-hidden rounded-[2.5rem] lg:rounded-[4rem] flex flex-col lg:flex-row min-h-[600px] lg:aspect-video border border-border/40">
-
         {/* Left: scrolling chip list */}
         <div className="w-full lg:w-[40%] min-h-[350px] md:min-h-[450px] lg:h-full relative z-30 flex flex-col items-start justify-center overflow-hidden px-8 md:px-16 lg:pl-16 bg-blue-500">
           <div className="absolute inset-x-0 top-0 h-12 md:h-20 lg:h-16 bg-gradient-to-b from-blue-500 via-blue-500/80 to-transparent z-40" />
@@ -147,7 +162,7 @@ export function FeatureCarousel() {
               const wrappedDistance = wrap(
                 -(FEATURES.length / 2),
                 FEATURES.length / 2,
-                distance
+                distance,
               );
               const Icon = feature.icon;
 
@@ -175,13 +190,13 @@ export function FeatureCarousel() {
                       "relative flex items-center gap-4 px-6 md:px-10 lg:px-8 py-3.5 md:py-5 lg:py-4 rounded-full transition-all duration-700 text-left group border",
                       isActive
                         ? "bg-white text-blue-500 border-white z-10"
-                        : "bg-transparent text-white/60 border-white/20 hover:border-white/40 hover:text-white"
+                        : "bg-transparent text-white/60 border-white/20 hover:border-white/40 hover:text-white",
                     )}
                   >
                     <Icon
                       className={cn(
                         "transition-colors duration-500 shrink-0",
-                        isActive ? "text-blue-500" : "text-white/40"
+                        isActive ? "text-blue-500" : "text-white/40",
                       )}
                       size={18}
                       strokeWidth={2}
@@ -231,7 +246,9 @@ export function FeatureCarousel() {
                     alt={feature.label}
                     className={cn(
                       "w-full h-full object-cover transition-all duration-700",
-                      isActive ? "grayscale-0 blur-0" : "grayscale blur-[2px] brightness-75"
+                      isActive
+                        ? "grayscale-0 blur-0"
+                        : "grayscale blur-[2px] brightness-75",
                     )}
                   />
 
@@ -256,7 +273,7 @@ export function FeatureCarousel() {
                   <div
                     className={cn(
                       "absolute top-8 left-8 flex items-center gap-3 transition-opacity duration-300",
-                      isActive ? "opacity-100" : "opacity-0"
+                      isActive ? "opacity-100" : "opacity-0",
                     )}
                   >
                     <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_white]" />
@@ -269,7 +286,6 @@ export function FeatureCarousel() {
             })}
           </div>
         </div>
-
       </div>
     </div>
   );

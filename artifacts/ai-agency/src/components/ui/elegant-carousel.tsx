@@ -1,5 +1,5 @@
-'use client';
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+"use client";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 
 interface SlideData {
   title: string;
@@ -11,47 +11,47 @@ interface SlideData {
 
 const slides: SlideData[] = [
   {
-    title: 'E-commerce IA',
-    subtitle: 'Varejo / Automação',
+    title: "E-commerce com IA",
+    subtitle: "Varejo / Automação",
     description:
-      'Implementamos um sistema de recomendação autônomo que analisa o comportamento do usuário em tempo real — aumentando a conversão em 38% e o ticket médio em 22% no primeiro trimestre.',
-    accent: '#C4956A',
+      "Implementamos sistemas e automações que buscam usuários em tempo real — aumentando a conversão e o ticket médio logo no primeiro trimestre.",
+    accent: "#C4956A",
     imageUrl:
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&h=1200&fit=crop&q=80',
+      "https://i.pinimg.com/1200x/56/b7/30/56b730aaf1ad04fdf08ae410dd19aef0.jpg",
   },
   {
-    title: 'FinTech Agent',
-    subtitle: 'Finanças / Agente Autônomo',
+    title: "Corporate Agent",
+    subtitle: "Agentes Autônomos",
     description:
-      'Desenvolvemos um agente de IA que processa e categoriza transações financeiras 24/7 — reduzindo o tempo de análise de 3 dias para menos de 4 horas com 99,2% de precisão.',
-    accent: '#8BA7B8',
+      "Desenvolvemos funcionários digitais de IA que aprendem e otimizam o seu negócio — reduzindo o tempo de análises, processos e treinamentos com 99,2% de precisão.",
+    accent: "#8BA7B8",
     imageUrl:
-      'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&h=1200&fit=crop&q=80',
+      "https://i.pinimg.com/1200x/dc/fe/5d/dcfe5d7bfb8856e2be985dcfb0bffe04.jpg",
   },
   {
-    title: 'SaaS Performance',
-    subtitle: 'Produto / Interface',
+    title: "Software Performance",
+    subtitle: "Produto / Interface",
     description:
-      'Redesenhamos e reconstruímos o produto digital de uma SaaS B2B — reduzindo o churn em 41% e aumentando o NPS de 34 para 71 em 6 meses após o lançamento.',
-    accent: '#7A9E7E',
+      "Construímos ou redesenhamos o seu produto digital — otimizado para reduzir churns e aumentar o NPS logo após o lançamento.",
+    accent: "#7A9E7E",
     imageUrl:
-      'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=900&h=1200&fit=crop&q=80',
+      "https://i.pinimg.com/736x/3a/61/d8/3a61d803b23fc77c5df360a8c0a2fe8a.jpg",
   },
   {
-    title: 'Data Intelligence',
-    subtitle: 'Dados / Sistema Inteligente',
+    title: "Workflows Inteligence",
+    subtitle: "Dados / Sistema Inteligente",
     description:
-      'Criamos uma plataforma de inteligência de dados que consolida fontes heterogêneas e gera insights automáticos — economizando 120 horas mensais de trabalho analítico.',
-    accent: '#A78BFA',
+      "Automatize tarefas rotineiras como pesquisas, envios de mensagens, criação de mídias, textos, leads, e insights automáticos — economizando horas mensais de trabalho.",
+    accent: "#A78BFA",
     imageUrl:
-      'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=900&h=1200&fit=crop&q=80',
+      "https://i.pinimg.com/1200x/d7/0a/1b/d70a1b402d35e10aff0bd761fe173027.jpg",
   },
 ];
 
 export default function ElegantCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [direction, setDirection] = useState<'next' | 'prev'>('next');
+  const [direction, setDirection] = useState<"next" | "prev">("next");
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -63,9 +63,9 @@ export default function ElegantCarousel() {
   const TRANSITION_DURATION = 800;
 
   const goToSlide = useCallback(
-    (index: number, dir?: 'next' | 'prev') => {
+    (index: number, dir?: "next" | "prev") => {
       if (isTransitioning || index === currentIndex) return;
-      setDirection(dir || (index > currentIndex ? 'next' : 'prev'));
+      setDirection(dir || (index > currentIndex ? "next" : "prev"));
       setIsTransitioning(true);
       setProgress(0);
 
@@ -76,17 +76,17 @@ export default function ElegantCarousel() {
         }, 50);
       }, TRANSITION_DURATION / 2);
     },
-    [isTransitioning, currentIndex]
+    [isTransitioning, currentIndex],
   );
 
   const goNext = useCallback(() => {
     const nextIndex = (currentIndex + 1) % slides.length;
-    goToSlide(nextIndex, 'next');
+    goToSlide(nextIndex, "next");
   }, [currentIndex, goToSlide]);
 
   const goPrev = useCallback(() => {
     const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-    goToSlide(prevIndex, 'prev');
+    goToSlide(prevIndex, "prev");
   }, [currentIndex, goToSlide]);
 
   useEffect(() => {
@@ -149,40 +149,69 @@ export default function ElegantCarousel() {
         <div className="carousel-content">
           <div className="carousel-content-inner">
             {/* Collection number */}
-            <div className={`carousel-collection-num ${isTransitioning ? 'transitioning' : 'visible'}`}>
+            <div
+              className={`carousel-collection-num ${isTransitioning ? "transitioning" : "visible"}`}
+            >
               <span className="carousel-num-line" />
               <span className="carousel-num-text">
-                {String(currentIndex + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
+                {String(currentIndex + 1).padStart(2, "0")} /{" "}
+                {String(slides.length).padStart(2, "0")}
               </span>
             </div>
 
             {/* Title */}
-            <h2 className={`carousel-title ${isTransitioning ? 'transitioning' : 'visible'}`}>
+            <h2
+              className={`carousel-title ${isTransitioning ? "transitioning" : "visible"}`}
+            >
               {currentSlide.title}
             </h2>
 
             {/* Subtitle */}
             <p
-              className={`carousel-subtitle ${isTransitioning ? 'transitioning' : 'visible'}`}
+              className={`carousel-subtitle ${isTransitioning ? "transitioning" : "visible"}`}
               style={{ color: currentSlide.accent }}
             >
               {currentSlide.subtitle}
             </p>
 
             {/* Description */}
-            <p className={`carousel-description ${isTransitioning ? 'transitioning' : 'visible'}`}>
+            <p
+              className={`carousel-description ${isTransitioning ? "transitioning" : "visible"}`}
+            >
               {currentSlide.description}
             </p>
 
             {/* Navigation Arrows */}
             <div className="carousel-nav-arrows">
-              <button onClick={goPrev} className="carousel-arrow-btn" aria-label="Anterior">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <button
+                onClick={goPrev}
+                className="carousel-arrow-btn"
+                aria-label="Anterior"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
                   <path d="M19 12H5M12 19l-7-7 7-7" />
                 </svg>
               </button>
-              <button onClick={goNext} className="carousel-arrow-btn" aria-label="Próximo">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <button
+                onClick={goNext}
+                className="carousel-arrow-btn"
+                aria-label="Próximo"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </button>
@@ -192,7 +221,9 @@ export default function ElegantCarousel() {
 
         {/* Right: Image */}
         <div className="carousel-image-container">
-          <div className={`carousel-image-frame ${isTransitioning ? 'transitioning' : 'visible'}`}>
+          <div
+            className={`carousel-image-frame ${isTransitioning ? "transitioning" : "visible"}`}
+          >
             <img
               src={currentSlide.imageUrl}
               alt={currentSlide.title}
@@ -206,8 +237,14 @@ export default function ElegantCarousel() {
             />
           </div>
 
-          <div className="carousel-frame-corner carousel-frame-corner--tl" style={{ borderColor: currentSlide.accent }} />
-          <div className="carousel-frame-corner carousel-frame-corner--br" style={{ borderColor: currentSlide.accent }} />
+          <div
+            className="carousel-frame-corner carousel-frame-corner--tl"
+            style={{ borderColor: currentSlide.accent }}
+          />
+          <div
+            className="carousel-frame-corner carousel-frame-corner--br"
+            style={{ borderColor: currentSlide.accent }}
+          />
         </div>
       </div>
 
@@ -217,15 +254,21 @@ export default function ElegantCarousel() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`carousel-progress-item ${index === currentIndex ? 'active' : ''}`}
+            className={`carousel-progress-item ${index === currentIndex ? "active" : ""}`}
             aria-label={`Ir para slide ${index + 1}`}
           >
             <div className="carousel-progress-track">
               <div
                 className="carousel-progress-fill"
                 style={{
-                  width: index === currentIndex ? `${progress}%` : index < currentIndex ? '100%' : '0%',
-                  backgroundColor: index === currentIndex ? currentSlide.accent : undefined,
+                  width:
+                    index === currentIndex
+                      ? `${progress}%`
+                      : index < currentIndex
+                        ? "100%"
+                        : "0%",
+                  backgroundColor:
+                    index === currentIndex ? currentSlide.accent : undefined,
                 }}
               />
             </div>
