@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { HoverButton } from "@/components/ui/hover-button";
+import { ButtonColorful } from "@/components/ui/button-colorful";
 
 interface Cta4Props {
   title?: string;
@@ -35,14 +35,11 @@ export const Cta4 = ({
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {description}
                 </p>
-                <a
-                  href={buttonUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-2"
-                >
-                  <HoverButton>{buttonText}</HoverButton>
-                </a>
+                <ButtonColorful
+                  label={buttonText}
+                  onClick={() => window.open(buttonUrl, '_blank', 'noopener,noreferrer')}
+                  className="mt-2"
+                />
               </div>
               <div className="md:w-5/12">
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">

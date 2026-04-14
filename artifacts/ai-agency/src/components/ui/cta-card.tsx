@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { ButtonColorful } from "@/components/ui/button-colorful";
+import { HoverButton } from "@/components/ui/hover-button";
 
 interface CtaCardProps extends React.HTMLAttributes<HTMLDivElement> {
   imageSrc: string;
@@ -43,16 +43,14 @@ const CtaCard = React.forwardRef<HTMLDivElement, CtaCardProps>(
               {description}
             </p>
             <div className="mt-6">
-              <ButtonColorful
-                label={buttonText}
-                onClick={() => {
-                  if (buttonUrl) {
-                    window.open(buttonUrl, '_blank', 'noopener,noreferrer');
-                  } else {
-                    onButtonClick?.();
-                  }
-                }}
-              />
+              <a
+                href={buttonUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={!buttonUrl ? onButtonClick : undefined}
+              >
+                <HoverButton>{buttonText}</HoverButton>
+              </a>
             </div>
           </div>
         </div>
