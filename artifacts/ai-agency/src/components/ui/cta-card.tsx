@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { GlowButton } from "@/components/ui/glow-button";
 
 interface CtaCardProps extends React.HTMLAttributes<HTMLDivElement> {
   imageSrc: string;
@@ -43,19 +43,11 @@ const CtaCard = React.forwardRef<HTMLDivElement, CtaCardProps>(
               {description}
             </p>
             <div className="mt-6">
-              <Button
-                size="lg"
-                asChild={!!buttonUrl}
+              <GlowButton
+                label={buttonText}
+                href={buttonUrl}
                 onClick={!buttonUrl ? onButtonClick : undefined}
-              >
-                {buttonUrl ? (
-                  <a href={buttonUrl} target="_blank" rel="noopener noreferrer">
-                    {buttonText}
-                  </a>
-                ) : (
-                  buttonText
-                )}
-              </Button>
+              />
             </div>
           </div>
         </div>

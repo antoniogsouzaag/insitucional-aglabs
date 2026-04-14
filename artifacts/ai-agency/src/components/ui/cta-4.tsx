@@ -23,41 +23,44 @@ export const Cta4 = ({
   ],
 }: Cta4Props) => {
   return (
-    <section className="py-32">
-      <div className="container mx-auto">
-        <div className="flex justify-center">
-          <div className="max-w-5xl w-full">
-            <div className="flex flex-col items-start justify-between gap-10 rounded-lg bg-muted px-6 py-10 md:flex-row lg:px-20 lg:py-16">
-              <div className="md:w-1/2 space-y-5">
-                <h4 className="text-2xl font-bold md:text-3xl leading-snug">
-                  {title}
-                </h4>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {description}
-                </p>
-                <a
-                  href={buttonUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-2"
-                >
-                  <HoverButton>{buttonText}</HoverButton>
-                </a>
-              </div>
-              <div className="md:w-5/12">
-                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
-                  O que os agentes fazem por você
-                </p>
-                <ul className="flex flex-col space-y-3 text-sm font-medium">
-                  {items.map((item, idx) => (
-                    <li className="flex items-start gap-3" key={idx}>
-                      <Check className="mt-0.5 size-4 flex-shrink-0 text-blue-500" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+    <section className="py-16 md:py-24 lg:py-32 px-4 sm:px-6">
+      <div className="mx-auto max-w-5xl w-full">
+        <div className="flex flex-col gap-8 rounded-xl bg-muted px-6 py-10 sm:px-8 sm:py-12 md:flex-row md:items-start md:justify-between lg:px-16 lg:py-14">
+          {/* Left column */}
+          <div className="flex flex-col gap-5 md:w-1/2">
+            <h4 className="text-2xl font-bold leading-snug sm:text-3xl">
+              {title}
+            </h4>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              {description}
+            </p>
+            <a
+              href={buttonUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <HoverButton>{buttonText}</HoverButton>
+            </a>
+          </div>
+
+          {/* Divider — horizontal on mobile, vertical on desktop */}
+          <div className="h-px w-full bg-border md:hidden" />
+          <div className="hidden md:block md:w-px md:self-stretch bg-border" />
+
+          {/* Right column */}
+          <div className="md:w-5/12">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4">
+              O que os agentes fazem por você
+            </p>
+            <ul className="flex flex-col space-y-3 text-sm font-medium">
+              {items.map((item, idx) => (
+                <li className="flex items-start gap-3" key={idx}>
+                  <Check className="mt-0.5 size-4 flex-shrink-0 text-blue-500" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

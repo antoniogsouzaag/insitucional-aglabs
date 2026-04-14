@@ -1,0 +1,43 @@
+import React, { forwardRef, useState } from 'react';
+import { Sparkles } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+interface GlowButtonProps {
+  label?: string;
+  href?: string;
+  onClick?(): void;
+  className?: string;
+}
+
+export const GlowButton = forwardRef<HTMLButtonElement, GlowButtonProps>(
+  ({ label = "Generate", href, onClick, className }, ref) => {
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleClick = () => {
+      setIsClicked(true);
+      setTimeout(() => setIsClicked(false), 200);
+      onClick?.();
+      if (href) {
+        window.open(href, '_blank', 'noopener,noreferrer');
+      }
+    };
+
+    return (
+      <button
+        ref={ref}
+        type="button"
+        aria-label={label}
+        className={cn("glow-btn", className)}
+        onClick={handleClick}
+        data-state={isClicked ? "clicked" : undefined}
+      >
+        <span className="flex items-center justify-center gap-1.5">
+          {label}
+          <Sparkles size={16} className="ml-0.5" />
+        </span>
+      </button>
+    );
+  }
+);
+
+GlowButton.displayName = "GlowButton";
