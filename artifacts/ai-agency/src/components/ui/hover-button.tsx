@@ -15,19 +15,14 @@ const HoverButton = React.forwardRef<HTMLButtonElement, HoverButtonProps>(
       id: number
       x: number
       y: number
-      color: string
       fadeState: "in" | "out" | null
     }>>([])
     const lastAddedRef = React.useRef(0)
 
     const createCircle = React.useCallback((x: number, y: number) => {
-      const buttonWidth = buttonRef.current?.offsetWidth || 0
-      const xPos = x / buttonWidth
-      const color = `linear-gradient(to right, var(--circle-start) ${xPos * 100}%, var(--circle-end) ${xPos * 100}%)`
-
       setCircles((prev) => [
         ...prev,
-        { id: Date.now(), x, y, color, fadeState: null },
+        { id: Date.now(), x, y, fadeState: null },
       ])
     }, [])
 
@@ -35,7 +30,7 @@ const HoverButton = React.forwardRef<HTMLButtonElement, HoverButtonProps>(
       (event: React.PointerEvent<HTMLButtonElement>) => {
         if (!isListening) return
         const currentTime = Date.now()
-        if (currentTime - lastAddedRef.current > 100) {
+        if (currentTime - lastAddedRef.current > 80) {
           lastAddedRef.current = currentTime
           const rect = event.currentTarget.getBoundingClientRect()
           const x = event.clientX - rect.left
@@ -67,11 +62,11 @@ const HoverButton = React.forwardRef<HTMLButtonElement, HoverButtonProps>(
             setCircles((prev) =>
               prev.map((c) => c.id === circle.id ? { ...c, fadeState: "out" } : c)
             )
-          }, 1000)
+          }, 800)
 
           setTimeout(() => {
             setCircles((prev) => prev.filter((c) => c.id !== circle.id))
-          }, 2200)
+          }, 1600)
         }
       })
     }, [circles])
@@ -80,41 +75,37 @@ const HoverButton = React.forwardRef<HTMLButtonElement, HoverButtonProps>(
       <button
         ref={buttonRef}
         className={cn(
-          "relative isolate px-8 py-3 rounded-3xl",
+          "relative px-8 py-3 rounded-md",
           "text-foreground font-medium text-base leading-6",
           "backdrop-blur-lg bg-[rgba(43,55,80,0.1)]",
           "cursor-pointer overflow-hidden",
-          "before:content-[''] before:absolute before:inset-0",
-          "before:rounded-[inherit] before:pointer-events-none",
-          "before:z-[1]",
-          "before:shadow-[inset_0_0_0_1px_rgba(170,202,255,0.2),inset_0_0_16px_0_rgba(170,202,255,0.1),inset_0_-3px_12px_0_rgba(170,202,255,0.15),0_1px_3px_0_rgba(0,0,0,0.50),0_4px_12px_0_rgba(0,0,0,0.45)]",
-          "before:mix-blend-multiply before:transition-transform before:duration-300",
-          "active:before:scale-[0.975]",
+          "shadow-[inset_0_0_0_1px_rgba(170,202,255,0.2),inset_0_0_16px_0_rgba(170,202,255,0.1),inset_0_-3px_12px_0_rgba(170,202,255,0.15),0_1px_3px_0_rgba(0,0,0,0.50),0_4px_12px_0_rgba(0,0,0,0.45)]",
+          "active:scale-[0.975] transition-transform duration-150",
           className
         )}
         onPointerMove={handlePointerMove}
         onPointerEnter={handlePointerEnter}
         onPointerLeave={handlePointerLeave}
         {...props}
-        style={{
-          "--circle-start": "var(--tw-gradient-from, #a0d9f8)",
-          "--circle-end": "var(--tw-gradient-to, #3a5bbf)",
-        } as React.CSSProperties}
       >
-        {circles.map(({ id, x, y, color, fadeState }) => (
-          <div
+        {circles.map(({ id, x, y, fadeState }) => (
+          <span
             key={id}
             className={cn(
-              "absolute w-3 h-3 -translate-x-1/2 -translate-y-1/2 rounded-full",
-              "blur-lg pointer-events-none z-[-1] transition-opacity duration-300",
-              fadeState === "in" && "opacity-75",
-              fadeState === "out" && "opacity-0 duration-[1.2s]",
-              !fadeState && "opacity-0"
+              "absolute w-20 h-20 -translate-x-1/2 -translate-y-1/2 rounded-full",
+              "blur-xl pointer-events-none transition-opacity",
+              fadeState === "in" && "opacity-60 duration-300",
+              fadeState === "out" && "opacity-0 duration-[800ms]",
+              !fadeState && "opacity-0 duration-0"
             )}
-            style={{ left: x, top: y, background: color }}
+            style={{
+              left: x,
+              top: y,
+              background: "radial-gradient(circle, #60a5fa, #3b82f6)",
+            }}
           />
         ))}
-        {children}
+        <span className="relative z-10">{children}</span>
       </button>
     )
   }

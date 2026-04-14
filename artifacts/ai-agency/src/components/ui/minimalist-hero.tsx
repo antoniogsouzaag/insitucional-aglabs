@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface MinimalistHeroProps {
@@ -14,7 +13,7 @@ interface MinimalistHeroProps {
     part1: string;
     part2: string;
   };
-  socialLinks: { icon: LucideIcon; href: string }[];
+  socialLinks: { icon: React.ComponentType<{ className?: string }>; href: string }[];
   locationText: string;
   className?: string;
 }
@@ -42,7 +41,7 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
   </a>
 );
 
-const SocialIcon = ({ href, icon: Icon }: { href: string; icon: LucideIcon }) => (
+const SocialIcon = ({ href, icon: Icon }: { href: string; icon: React.ComponentType<{ className?: string }> }) => (
   <a href={href} target="_blank" rel="noopener noreferrer" className="text-foreground/60 transition-colors hover:text-foreground">
     <Icon className="h-5 w-5" />
   </a>

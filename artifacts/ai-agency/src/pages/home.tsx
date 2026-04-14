@@ -2,7 +2,6 @@ import React from "react";
 import {
   Facebook,
   Instagram,
-  Twitter,
   Linkedin,
   Bot,
   Globe,
@@ -13,6 +12,7 @@ import {
   Network,
   Cpu,
 } from "lucide-react";
+
 import { MinimalistHero } from "@/components/ui/minimalist-hero";
 import AboutSection from "@/components/ui/about-section";
 import { FeatureCarousel } from "@/components/ui/feature-carousel";
@@ -22,6 +22,12 @@ import { Footer } from "@/components/ui/footer-section";
 import { Radar, IconContainer } from "@/components/ui/radar-effect";
 import FeatureSections from "@/components/ui/feature-sections";
 import { Cta4 } from "@/components/ui/cta-4";
+
+const XIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 const HomePage = () => {
   const navLinks = [
@@ -37,7 +43,7 @@ const HomePage = () => {
       href: "https://www.facebook.com/profile.php?id=61573483665476",
     },
     { icon: Instagram, href: "https://www.instagram.com/ag_labs" },
-    { icon: Twitter, href: "https://x.com/aglabsrv" },
+    { icon: XIcon, href: "https://x.com/aglabsrv" },
     { icon: Linkedin, href: "https://www.linkedin.com/company/ag-labs" },
   ];
 
@@ -78,7 +84,7 @@ const HomePage = () => {
         <ElegantCarousel />
       </div>
       {/* CTA Radar Section */}
-      <section className="relative w-full bg-background py-16 md:py-24 overflow-hidden border-t border-border/30">
+      <section id="radar" className="relative w-full bg-background py-16 md:py-24 overflow-hidden border-t border-border/30">
         <div className="mx-auto max-w-4xl px-6 text-center mb-12">
           <p className="text-xs font-semibold uppercase tracking-widest text-blue-500 mb-4">
             IA + WebDesign

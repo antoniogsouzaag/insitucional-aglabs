@@ -98,10 +98,11 @@ export default function AboutSection() {
                     resultados mensuráveis para empresas.
                   </p>
                   <Button
+                    asChild
                     variant="outline"
-                    className="mt-4 border-white text-black dark:text-white hover:bg-white hover:text-black"
+                    className="mt-4 border-white text-white hover:bg-white hover:text-black"
                   >
-                    Saiba Mais
+                    <a href="#radar">Saiba Mais</a>
                   </Button>
                 </div>
               </motion.div>
