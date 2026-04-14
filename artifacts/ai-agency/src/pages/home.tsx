@@ -22,6 +22,7 @@ import { Footer } from "@/components/ui/footer-section";
 import { Radar, IconContainer } from "@/components/ui/radar-effect";
 import FeatureSections from "@/components/ui/feature-sections";
 import { Cta4 } from "@/components/ui/cta-4";
+import { CtaCard } from "@/components/ui/cta-card";
 
 const XIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
@@ -159,6 +160,19 @@ const HomePage = () => {
 
       <FeatureSections />
       <Cta4 />
+      <section className="py-16 md:py-24 bg-background">
+        <div className="mx-auto max-w-5xl px-6">
+          <CtaCard
+            title="Landing Pages que Convertem"
+            subtitle={<>Seu negócio merece uma presença digital <span className="text-blue-500">que vende.</span></>}
+            description="Criamos landing pages de alto desempenho com design profissional, copywriting estratégico e integração com IA — prontas para atrair, engajar e converter seus clientes."
+            buttonText="Criar minha Landing Page"
+            buttonUrl="https://lp.aglabs.ia.br/"
+            imageSrc="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/aglabs/Man_with_crossed_202604122236.jpeg"
+            imageAlt="AG LABS - Landing Pages"
+          />
+        </div>
+      </section>
       <Footer />
     </>
   );
