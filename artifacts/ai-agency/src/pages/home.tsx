@@ -21,6 +21,7 @@ import TechMarquee from "@/components/ui/tech-marquee";
 import { Footer } from "@/components/ui/footer-section";
 import { Radar, IconContainer } from "@/components/ui/radar-effect";
 import FeatureSections from "@/components/ui/feature-sections";
+import ShowcaseSection from "@/components/ui/showcase-section";
 import { Cta4 } from "@/components/ui/cta-4";
 import { CtaCard } from "@/components/ui/cta-card";
 import { CtaEmailCard } from "@/components/ui/call-to-action-cta";
@@ -177,6 +178,7 @@ const HomePage = () => {
       </section>
 
       <FeatureSections />
+      <ShowcaseSection />
 
       {/* CTAs Block */}
       <section className="py-14 md:py-20 bg-background">

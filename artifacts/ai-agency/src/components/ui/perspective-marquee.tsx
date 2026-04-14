@@ -46,7 +46,7 @@ export function PerspectiveMarqueePlayer({
   fontSize = 84,
   color = "#fafafa",
   fontWeight = 700,
-  pixelsPerFrame = 1,
+  pixelsPerFrame = 0.3,
   rotateY = -28,
   rotateX = 8,
   perspective = 1200,
