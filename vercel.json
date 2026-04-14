@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/ai-agency run build",
-  "outputDirectory": "artifacts/ai-agency/dist/public",
+  "outputDirectory": "artifacts/ai-agency/dist",
   "installCommand": "pnpm install",
   "framework": null,
   "rewrites": [
