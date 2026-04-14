@@ -11,7 +11,7 @@ interface Cta4Props {
 
 export const Cta4 = ({
   title = "Seu funcionário digital, 24h, não falta, não erra...",
-  description = "Enquanto você lê isso, seus concorrentes estão automatizando atendimento, análises, conteúdo e vendas com agentes de IA. Descubra onde o seu negócio está perdendo tempo — e deixe um agente resolver isso agora.",
+  description = "Treinado para operar como parte do seu negócio 24h por dia, sem falhas, sem limites. Um agente que não só atende, opera, decide e executa como parte do seu time",
   buttonText = "Automatizar minha empresa →",
   buttonUrl = "https://rag.aglabs.api.br/",
   items = [
