@@ -179,7 +179,7 @@ const HomePage = () => {
             description="Criamos landing pages de alto desempenho com design profissional, copywriting estratégico e integração com IA — prontas para atrair, engajar e converter seus clientes."
             buttonText="Criar minha Landing Page"
             buttonUrl="https://lp.aglabs.ia.br/"
-            imageSrc="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/aglabs/Man_with_crossed_202604122236.jpeg"
+            imageSrc="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/www.framer.webp"
             imageAlt="AG LABS - Landing Pages"
           />
           <CtaEmailCard
@@ -187,7 +187,7 @@ const HomePage = () => {
             description="Receba conteúdos exclusivos sobre IA, automações e tendências digitais diretamente no seu e-mail."
             buttonText="Quero receber"
             inputPlaceholder="Seu melhor e-mail"
-            imageSrc="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/www.framer.webp"
+            imageSrc="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/aglabs/Man_with_crossed_202604122236.jpeg"
             onSubmit={handleEmailSubmit}
           />
         </div>
