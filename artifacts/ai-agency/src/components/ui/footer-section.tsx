@@ -38,12 +38,12 @@ const footerLinks: FooterSection[] = [
     links: [
       { title: 'Início', href: '#' },
       { title: 'Sobre Nós', href: '#sobre-nos' },
-      { title: 'Serviços', href: '#services' },
-      { title: 'Cases', href: '#cases' },
+      { title: 'Soluções', href: '#services' },
+      { title: 'Produtos', href: '#cases' },
     ],
   },
   {
-    label: 'Serviços',
+    label: 'Soluções',
     links: [
       { title: 'Corporate Agent', href: 'https://rag.aglabs.api.br/', external: true },
       { title: 'Websites que Vendem', href: 'https://lp.aglabs.ia.br/', external: true },

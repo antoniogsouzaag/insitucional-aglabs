@@ -24,6 +24,7 @@ import FeatureSections from "@/components/ui/feature-sections";
 import { Cta4 } from "@/components/ui/cta-4";
 import { CtaCard } from "@/components/ui/cta-card";
 import { CtaEmailCard } from "@/components/ui/call-to-action-cta";
+import { PerspectiveMarqueePlayer } from "@/components/ui/perspective-marquee";
 import { supabase } from "@/lib/supabase";
 
 const XIcon = ({ className }: { className?: string }) => (
@@ -48,8 +49,8 @@ const HomePage = () => {
   const navLinks = [
     { label: "HOME", href: "#" },
     { label: "SOBRE NÓS", href: "#sobre-nos" },
-    { label: "SERVIÇOS", href: "#services" },
-    { label: "CASES", href: "#cases" },
+    { label: "SOLUÇÕES", href: "#services" },
+    { label: "PRODUTOS", href: "#cases" },
   ];
 
   const socialLinks = [
@@ -195,6 +196,7 @@ const HomePage = () => {
             imageSrc="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/www.framer.webp"
             imageAlt="AG LABS - Landing Pages"
           />
+          <PerspectiveMarqueePlayer />
           <CtaEmailCard
             title="Fique ligado!"
             description="Receba conteúdos exclusivos, automações e novidades com exclusividade."
