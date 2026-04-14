@@ -35,7 +35,7 @@ export default function AboutSection() {
                 size="sm"
                 className="gap-1 pr-1.5"
               >
-                <a href="#">
+                <a href="#services">
                   <span>Saiba Mais</span>
                   <ChevronRight className="size-4" />
                 </a>

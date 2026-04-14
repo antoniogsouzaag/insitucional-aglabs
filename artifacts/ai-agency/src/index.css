@@ -613,3 +613,32 @@
     inset: -1px;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes hover-ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.8;
+  }
+  60% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+.hover-btn-ripple {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #93c5fd 0%, #3b82f6 40%, transparent 70%);
+  pointer-events: none;
+  animation: hover-ripple 1s ease-out forwards;
+  filter: blur(12px);
+}
