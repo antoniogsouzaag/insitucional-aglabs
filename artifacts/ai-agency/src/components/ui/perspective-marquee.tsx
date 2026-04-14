@@ -45,9 +45,9 @@ export function PerspectiveMarqueePlayer({
   speed = 1,
   className,
 }: PerspectiveMarqueeProps) {
+  const trackRef = React.useRef<HTMLDivElement>(null);
   const frameRef = React.useRef(0);
   const rafRef = React.useRef<number>(0);
-  const [offset, setOffset] = React.useState(0);
 
   const itemPadding = fontSize * 0.9;
   const approxItemWidth = React.useMemo(
@@ -59,18 +59,40 @@ export function PerspectiveMarqueePlayer({
     [items, fontSize, itemPadding],
   );
 
+  const rendered = [...items, ...items, ...items];
+
   React.useEffect(() => {
+    const spans = trackRef.current?.querySelectorAll<HTMLSpanElement>("span");
+
     const animate = () => {
       frameRef.current += speed;
-      const newOffset = -((frameRef.current * pixelsPerFrame) % approxItemWidth);
-      setOffset(newOffset);
+      const offset = -((frameRef.current * pixelsPerFrame) % approxItemWidth);
+
+      if (trackRef.current) {
+        trackRef.current.style.transform = `translateX(${offset}px)`;
+      }
+
+      if (spans) {
+        spans.forEach((span, i) => {
+          const itemCenter =
+            i * (approxItemWidth / items.length) +
+            approxItemWidth / items.length / 2 +
+            offset;
+          const norm = (itemCenter - 640) / 640;
+          const distance = Math.min(1, Math.abs(norm));
+          const blurPx = distance * 6;
+          const opacity = 1 - distance * 0.4;
+          span.style.filter = `blur(${blurPx}px)`;
+          span.style.opacity = String(opacity);
+        });
+      }
+
       rafRef.current = requestAnimationFrame(animate);
     };
+
     rafRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(rafRef.current);
-  }, [pixelsPerFrame, approxItemWidth, speed]);
-
-  const rendered = [...items, ...items, ...items];
+  }, [pixelsPerFrame, approxItemWidth, speed, items]);
 
   return (
     <div
@@ -98,44 +120,32 @@ export function PerspectiveMarqueePlayer({
         }}
       >
         <div
+          ref={trackRef}
           style={{
             display: "flex",
             whiteSpace: "nowrap",
-            transform: `translateX(${offset}px)`,
           }}
         >
-          {rendered.map((item, i) => {
-            const itemCenter =
-              i * (approxItemWidth / items.length) +
-              approxItemWidth / items.length / 2 +
-              offset;
-            const norm = (itemCenter - 640) / 640;
-            const distance = Math.min(1, Math.abs(norm));
-            const blurPx = distance * 6;
-            const opacity = 1 - distance * 0.4;
-
-            return (
-              <span
-                key={i}
-                style={{
-                  display: "inline-block",
-                  fontFamily: FONT_FAMILY,
-                  fontSize,
-                  fontWeight,
-                  color,
-                  letterSpacing: "-0.03em",
-                  paddingRight: itemPadding,
-                  filter: `blur(${blurPx}px)`,
-                  opacity,
-                }}
-              >
-                {item}
-              </span>
-            );
-          })}
+          {rendered.map((item, i) => (
+            <span
+              key={i}
+              style={{
+                display: "inline-block",
+                fontFamily: FONT_FAMILY,
+                fontSize,
+                fontWeight,
+                color,
+                letterSpacing: "-0.03em",
+                paddingRight: itemPadding,
+              }}
+            >
+              {item}
+            </span>
+          ))}
         </div>
       </div>
 
+      {/* Left/right fade */}
       <div
         style={{
           position: "absolute",
@@ -144,6 +154,7 @@ export function PerspectiveMarqueePlayer({
           background: `linear-gradient(90deg, ${fadeColor} 0%, transparent 18%, transparent 82%, ${fadeColor} 100%)`,
         }}
       />
+      {/* Top/bottom fade */}
       <div
         style={{
           position: "absolute",
