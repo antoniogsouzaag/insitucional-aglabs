@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, MessageCircle, Sparkles } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP_URL =
@@ -9,92 +9,84 @@ const WHATSAPP_URL =
 export function CtaCustomProject() {
   return (
     <section
-      className="relative w-full overflow-hidden rounded-2xl border border-white/10
-      bg-[linear-gradient(to_bottom,#0a0a0a,#050505)]
-      px-6 py-16 text-center"
+      id="projetos-personalizados"
+      className="relative mx-auto w-full pt-40 px-6 text-center md:px-8 
+      min-h-[calc(100vh-40px)] overflow-hidden 
+      bg-[linear-gradient(to_bottom,#fff,#ffffff_50%,#e8e8e8_88%)]  
+      dark:bg-[linear-gradient(to_bottom,#000,#0000_30%,#898e8e_78%,#ffffff_99%_50%)] 
+      rounded-b-xl"
     >
-      {/* Grid background */}
+      {/* Grid BG */}
       <div
-        className="absolute inset-0 -z-10 opacity-30 h-full w-full
-        bg-[linear-gradient(to_right,#333_1px,transparent_1px),linear-gradient(to_bottom,#333_1px,transparent_1px)]
-        bg-[size:4rem_4rem]
-        [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,#000_60%,transparent_100%)]"
+        className="absolute -z-10 inset-0 opacity-80 h-[600px] w-full 
+        bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] 
+        dark:bg-[linear-gradient(to_right,#333_1px,transparent_1px),linear-gradient(to_bottom,#333_1px,transparent_1px)]
+        bg-[size:6rem_5rem] 
+        [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"
       />
 
-      {/* Blue radial glow top */}
-      <div className="absolute -top-16 left-1/2 -translate-x-1/2 h-40 w-[500px] rounded-full bg-blue-600/20 blur-3xl pointer-events-none" />
-
-      {/* Radial bottom separator */}
+      {/* Radial Accent */}
       <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2
-        h-[200px] w-[120%] rounded-[100%]
-        bg-[radial-gradient(closest-side,#050505_80%,transparent)]
-        pointer-events-none"
+        className="absolute left-1/2 top-[calc(100%-90px)] lg:top-[calc(100%-150px)] 
+        h-[500px] w-[700px] md:h-[500px] md:w-[1100px] lg:h-[750px] lg:w-[140%] 
+        -translate-x-1/2 rounded-[100%] border-[#B48CDE] bg-white dark:bg-black 
+        bg-[radial-gradient(closest-side,#fff_82%,#000000)] 
+        dark:bg-[radial-gradient(closest-side,#000_82%,#ffffff)] 
+        animate-fade-up"
       />
 
       {/* Eyebrow */}
-      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="group inline-block mb-6">
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="group">
         <span
-          className="text-xs text-gray-400 font-semibold uppercase tracking-widest mx-auto px-5 py-2
-          bg-gradient-to-tr from-white/5 via-white/5 to-transparent
-          border border-white/10
-          rounded-full w-fit flex items-center justify-center gap-1"
+          className="text-sm text-gray-600 dark:text-gray-400 font-geist mx-auto px-5 py-2 
+          bg-gradient-to-tr from-zinc-300/5 via-gray-400/5 to-transparent  
+          border-[2px] border-gray-300/20 dark:border-white/5 
+          rounded-3xl w-fit tracking-tight uppercase flex items-center justify-center"
         >
-          <Sparkles className="w-3.5 h-3.5 text-blue-400" />
           Projetos Sob Medida
-          <ChevronRight className="w-3.5 h-3.5 ml-1 transition-transform duration-300 group-hover:translate-x-1" />
+          <ChevronRight className="inline w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
         </span>
       </a>
 
       {/* Title */}
-      <h2
-        className="text-balance text-4xl sm:text-5xl md:text-6xl font-semibold leading-none tracking-tighter
-        bg-gradient-to-br from-white from-30% to-white/40 bg-clip-text text-transparent
-        mb-5 animate-fade-in"
+      <h1
+        className="animate-fade-in -translate-y-4 text-balance 
+        bg-gradient-to-br from-black from-30% to-black/40 
+        bg-clip-text py-6 text-5xl font-semibold leading-none tracking-tighter 
+        text-transparent opacity-0 sm:text-6xl md:text-7xl lg:text-8xl 
+        dark:from-white dark:to-white/40"
       >
-        Seu projeto,
-        <br className="hidden sm:block" /> do jeito que precisa ser.
-      </h2>
+        Seu projeto, do jeito que precisa ser.
+      </h1>
 
       {/* Subtitle */}
       <p
-        className="mb-10 text-balance text-base md:text-lg tracking-tight text-gray-400
-        max-w-xl mx-auto animate-fade-in"
+        className="animate-fade-in mb-12 -translate-y-4 text-balance 
+        text-lg tracking-tight text-gray-600 dark:text-gray-400 
+        opacity-0 md:text-xl"
       >
-        Desenvolvemos soluções 100% personalizadas — agentes de IA, automações,
-        sistemas e interfaces feitos exclusivamente para o seu negócio, do zero
-        até a entrega.
+        Desenvolvemos soluções 100% personalizadas — agentes de IA, automações e
+        interfaces feitas sob medida para o seu negócio, do zero até a entrega.
       </p>
 
-      {/* CTA button */}
-      <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+      {/* CTA */}
+      <div className="flex justify-center">
         <Button
           asChild
-          className="h-12 px-8 text-base font-semibold bg-green-600 hover:bg-green-500 text-white rounded-full transition-all duration-300 shadow-lg shadow-green-900/30"
+          className="mt-[-20px] w-fit md:w-64 z-20 font-geist tracking-tighter text-center text-lg"
         >
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-            <MessageCircle className="w-5 h-5 mr-2" />
             Falar no WhatsApp
           </a>
         </Button>
-        <Button
-          asChild
-          variant="outline"
-          className="h-12 px-8 text-base font-medium rounded-full border-white/20 text-white bg-transparent hover:bg-white/5"
-        >
-          <a
-            href="#services"
-            onClick={(e) => {
-              e.preventDefault();
-              document
-                .querySelector("#services")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Ver soluções
-          </a>
-        </Button>
       </div>
+
+      {/* Bottom Fade */}
+      <div
+        className="animate-fade-up relative mt-32 opacity-0 [perspective:2000px] 
+        after:absolute after:inset-0 after:z-50 
+        after:[background:linear-gradient(to_top,hsl(var(--background))_10%,transparent)]"
+      />
     </section>
   );
 }
