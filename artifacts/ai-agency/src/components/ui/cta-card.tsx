@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { GlowButton } from "@/components/ui/glow-button";
+import { ButtonColorful } from "@/components/ui/button-colorful";
 
 interface CtaCardProps extends React.HTMLAttributes<HTMLDivElement> {
   imageSrc: string;
@@ -43,7 +43,7 @@ const CtaCard = React.forwardRef<HTMLDivElement, CtaCardProps>(
               {description}
             </p>
             <div className="mt-6">
-              <GlowButton
+              <ButtonColorful
                 label={buttonText}
                 onClick={() => {
                   if (buttonUrl) {
