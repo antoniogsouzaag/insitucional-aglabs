@@ -187,7 +187,7 @@ const HomePage = () => {
             description="Receba conteúdos exclusivos sobre IA, automações e tendências digitais diretamente no seu e-mail."
             buttonText="Quero receber"
             inputPlaceholder="Seu melhor e-mail"
-            imageSrc="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920"
+            imageSrc="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/www.framer.webp"
             onSubmit={handleEmailSubmit}
           />
         </div>
