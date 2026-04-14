@@ -23,12 +23,21 @@ import { Radar, IconContainer } from "@/components/ui/radar-effect";
 import FeatureSections from "@/components/ui/feature-sections";
 import { Cta4 } from "@/components/ui/cta-4";
 import { CtaCard } from "@/components/ui/cta-card";
+import { CtaEmailCard } from "@/components/ui/call-to-action-cta";
+import { supabase } from "@/lib/supabase";
 
 const XIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </svg>
 );
+
+const handleEmailSubmit = async (email: string) => {
+  const { error } = await supabase
+    .from("leads_institucional")
+    .insert([{ email, created_at: new Date().toISOString() }]);
+  if (error) throw new Error(error.message);
+};
 
 const HomePage = () => {
   const navLinks = [
@@ -173,6 +182,20 @@ const HomePage = () => {
           />
         </div>
       </section>
+      {/* Email Capture CTA */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="mx-auto max-w-5xl px-6">
+          <CtaEmailCard
+            title="Fique por dentro das novidades"
+            description="Receba conteúdos exclusivos sobre IA, automações e tendências digitais diretamente no seu e-mail."
+            buttonText="Quero receber"
+            inputPlaceholder="Seu melhor e-mail"
+            imageSrc="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920"
+            onSubmit={handleEmailSubmit}
+          />
+        </div>
+      </section>
+
       <Footer />
     </>
   );
