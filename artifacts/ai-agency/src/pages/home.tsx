@@ -26,6 +26,7 @@ import { Cta4 } from "@/components/ui/cta-4";
 import { CtaCard } from "@/components/ui/cta-card";
 import { CtaEmailCard } from "@/components/ui/call-to-action-cta";
 import { PerspectiveMarqueePlayer } from "@/components/ui/perspective-marquee";
+import { CtaCustomProject } from "@/components/ui/cta-custom-project";
 import { supabase } from "@/lib/supabase";
 
 const XIcon = ({ className }: { className?: string }) => (
@@ -199,6 +200,7 @@ const HomePage = () => {
             imageAlt="AG LABS - Landing Pages"
           />
           <PerspectiveMarqueePlayer />
+          <CtaCustomProject />
           <CtaEmailCard
             title="Fique ligado!"
             description="Receba conteúdos exclusivos, automações e novidades com exclusividade."
