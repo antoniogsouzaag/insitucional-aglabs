@@ -75,6 +75,7 @@
     "zod": "catalog:"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.103.0",
     "motion": "^12.38.0",
     "react-use-measure": "^2.1.7"
   }
