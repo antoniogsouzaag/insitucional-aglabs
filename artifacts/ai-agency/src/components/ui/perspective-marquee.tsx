@@ -21,22 +21,32 @@ const FONT_FAMILY =
   "var(--font-geist-sans), -apple-system, BlinkMacSystemFont, sans-serif";
 
 const DEFAULT_ITEMS = [
-  "Agentes de IA",
-  "Automações",
-  "Interfaces",
-  "Workflows",
-  "Software",
-  "Landing Pages",
-  "Integrações",
-  "Analytics",
+  "Vercel",
+  "Linear",
+  "Stripe",
+  "Figma",
+  "Notion",
+  "Raycast",
+  "Arc",
+  "Cursor",
+  "Vercel",
+  "Linear",
+  "Stripe",
+  "Figma",
+  "Notion",
+  "Raycast",
+  "Arc",
+  "Cursor",
 ];
+
+const COPIES = 6;
 
 export function PerspectiveMarqueePlayer({
   items = DEFAULT_ITEMS,
   fontSize = 84,
   color = "#fafafa",
   fontWeight = 700,
-  pixelsPerFrame = 2,
+  pixelsPerFrame = 1,
   rotateY = -28,
   rotateX = 8,
   perspective = 1200,
@@ -48,6 +58,7 @@ export function PerspectiveMarqueePlayer({
   const trackRef = React.useRef<HTMLDivElement>(null);
   const frameRef = React.useRef(0);
   const rafRef = React.useRef<number>(0);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
   const itemPadding = fontSize * 0.9;
   const approxItemWidth = React.useMemo(
@@ -59,7 +70,7 @@ export function PerspectiveMarqueePlayer({
     [items, fontSize, itemPadding],
   );
 
-  const rendered = [...items, ...items, ...items];
+  const rendered = Array.from({ length: COPIES }, () => items).flat();
 
   React.useEffect(() => {
     const spans = trackRef.current?.querySelectorAll<HTMLSpanElement>("span");
@@ -72,13 +83,14 @@ export function PerspectiveMarqueePlayer({
         trackRef.current.style.transform = `translateX(${offset}px)`;
       }
 
-      if (spans) {
+      if (spans && containerRef.current) {
+        const halfW = containerRef.current.offsetWidth / 2;
         spans.forEach((span, i) => {
           const itemCenter =
             i * (approxItemWidth / items.length) +
             approxItemWidth / items.length / 2 +
             offset;
-          const norm = (itemCenter - 640) / 640;
+          const norm = (itemCenter - halfW) / halfW;
           const distance = Math.min(1, Math.abs(norm));
           const blurPx = distance * 6;
           const opacity = 1 - distance * 0.4;
@@ -97,9 +109,12 @@ export function PerspectiveMarqueePlayer({
   return (
     <div
       className={className}
+      ref={containerRef}
       style={{
         position: "relative",
-        width: "100%",
+        width: "100vw",
+        left: "50%",
+        transform: "translateX(-50%)",
         height: "360px",
         background,
         display: "flex",
