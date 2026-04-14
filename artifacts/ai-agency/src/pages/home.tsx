@@ -168,9 +168,11 @@ const HomePage = () => {
       </section>
 
       <FeatureSections />
-      <Cta4 />
-      <section className="py-16 md:py-24 bg-background">
-        <div className="mx-auto max-w-5xl px-6">
+
+      {/* CTAs Block */}
+      <section className="py-14 md:py-20 bg-background">
+        <div className="mx-auto max-w-5xl px-6 flex flex-col gap-6">
+          <Cta4 />
           <CtaCard
             title="Landing Pages que Convertem"
             subtitle={<>Seu negócio merece uma presença digital <span className="text-blue-500">que vende.</span></>}
@@ -180,11 +182,6 @@ const HomePage = () => {
             imageSrc="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/aglabs/Man_with_crossed_202604122236.jpeg"
             imageAlt="AG LABS - Landing Pages"
           />
-        </div>
-      </section>
-      {/* Email Capture CTA */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="mx-auto max-w-5xl px-6">
           <CtaEmailCard
             title="Fique por dentro das novidades"
             description="Receba conteúdos exclusivos sobre IA, automações e tendências digitais diretamente no seu e-mail."
