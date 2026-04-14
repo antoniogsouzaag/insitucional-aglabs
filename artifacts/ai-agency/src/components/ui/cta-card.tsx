@@ -45,8 +45,13 @@ const CtaCard = React.forwardRef<HTMLDivElement, CtaCardProps>(
             <div className="mt-6">
               <GlowButton
                 label={buttonText}
-                href={buttonUrl}
-                onClick={!buttonUrl ? onButtonClick : undefined}
+                onClick={() => {
+                  if (buttonUrl) {
+                    window.open(buttonUrl, '_blank', 'noopener,noreferrer');
+                  } else {
+                    onButtonClick?.();
+                  }
+                }}
               />
             </div>
           </div>

@@ -4,22 +4,18 @@ import { cn } from '@/lib/utils';
 
 interface GlowButtonProps {
   label?: string;
-  href?: string;
   onClick?(): void;
   className?: string;
 }
 
 export const GlowButton = forwardRef<HTMLButtonElement, GlowButtonProps>(
-  ({ label = "Generate", href, onClick, className }, ref) => {
+  ({ label = "Generate", onClick, className }, ref) => {
     const [isClicked, setIsClicked] = useState(false);
 
     const handleClick = () => {
       setIsClicked(true);
       setTimeout(() => setIsClicked(false), 200);
       onClick?.();
-      if (href) {
-        window.open(href, '_blank', 'noopener,noreferrer');
-      }
     };
 
     return (
