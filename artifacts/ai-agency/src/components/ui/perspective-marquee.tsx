@@ -22,21 +22,21 @@ const FONT_FAMILY =
 
 const DEFAULT_ITEMS = [
   "Vercel",
-  "Linear",
+  "GitHub",
   "Stripe",
   "Figma",
-  "Notion",
-  "Raycast",
-  "Arc",
+  "Discord",
+  "Google",
+  "Anthropic",
   "Cursor",
   "Vercel",
-  "Linear",
-  "Stripe",
-  "Figma",
+  "Clerk",
+  "Brevo",
+  "Sheets",
   "Notion",
-  "Raycast",
-  "Arc",
-  "Cursor",
+  "Whatsapp",
+  "Brave",
+  "Hostinger",
 ];
 
 const COPIES = 6;

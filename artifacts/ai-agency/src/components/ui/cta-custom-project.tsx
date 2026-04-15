@@ -37,14 +37,19 @@ export function CtaCustomProject() {
       {/* Content */}
       <div className="relative z-10">
         {/* Eyebrow */}
-        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="group">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group"
+        >
           <span
             className="text-sm text-gray-600 dark:text-gray-400 font-geist mx-auto px-5 py-2 
             bg-gradient-to-tr from-zinc-300/5 via-gray-400/5 to-transparent  
             border-[2px] border-gray-300/20 dark:border-white/5 
             rounded-3xl w-fit tracking-tight uppercase flex items-center justify-center"
           >
-            Projetos Sob Medida
+            Soluções Personalizadas
             <ChevronRight className="inline w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
           </span>
         </a>
@@ -57,7 +62,7 @@ export function CtaCustomProject() {
           text-transparent opacity-0 sm:text-6xl md:text-7xl lg:text-8xl 
           dark:from-white dark:to-white/40"
         >
-          Seu projeto, do jeito que precisa ser.
+          Precisa de um projeto personalizado?
         </h1>
 
         {/* Subtitle */}
@@ -66,8 +71,9 @@ export function CtaCustomProject() {
           text-lg tracking-tight text-gray-600 dark:text-gray-400 
           opacity-0 md:text-xl"
         >
-          Desenvolvemos soluções 100% personalizadas — agentes de IA, automações e
-          interfaces feitas sob medida para o seu negócio, do zero até a entrega.
+          Desenvolvemos soluções sob medida para o seu negócio, agentes de IA,
+          automações e interfaces feitas 100% personalizadas para a otimização
+          de processos, do zero até a entrega.
         </p>
 
         {/* CTA */}

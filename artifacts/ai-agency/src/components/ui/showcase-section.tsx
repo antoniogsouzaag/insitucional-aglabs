@@ -27,7 +27,7 @@ export default function ShowcaseSection() {
             className="rounded-2xl hover:-translate-y-0.5 transition duration-300"
           />
           <h3 className="text-2xl text-white font-medium mt-6 leading-snug">
-            Inteligência aplicada para crescimento real e resultados mensuráveis
+            Inteligência aplicada para crescimento evolutivo e resultados reais.
           </h3>
           <p className="text-muted-foreground mt-3 text-sm leading-relaxed">
             Unimos IA, design e estratégia para que o seu negócio evolua com

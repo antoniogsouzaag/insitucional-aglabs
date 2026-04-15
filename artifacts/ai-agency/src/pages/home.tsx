@@ -186,14 +186,14 @@ const HomePage = () => {
         <div className="mx-auto max-w-5xl px-6 flex flex-col gap-6 pb-14 md:pb-20">
           <Cta4 />
           <CtaCard
-            title="Landing Pages que Convertem"
+            title="Websites que Convertem"
             subtitle={
               <>
                 Seu negócio merece uma presença digital{" "}
                 <span className="text-blue-500">que vende.</span>
               </>
             }
-            description="Criamos landing pages de alto desempenho com design profissional, copywriting estratégico e integração com IA — prontas para atrair, engajar e converter seus clientes."
+            description="Criamos Websites de alto desempenho com design profissional, copywriting estratégico e integração com IA, prontas para atrair, engajar e converter seus clientes."
             buttonText="Criar minha Landing Page"
             buttonUrl="https://lp.aglabs.ia.br/"
             imageSrc="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/www.framer.webp"
