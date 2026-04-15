@@ -182,8 +182,8 @@ const HomePage = () => {
       <ShowcaseSection />
 
       {/* CTAs Block */}
-      <section className="py-14 md:py-20 bg-background">
-        <div className="mx-auto max-w-5xl px-6 flex flex-col gap-6">
+      <section className="pt-14 md:pt-20 bg-background">
+        <div className="mx-auto max-w-5xl px-6 flex flex-col gap-6 pb-14 md:pb-20">
           <Cta4 />
           <CtaCard
             title="Landing Pages que Convertem"
@@ -199,8 +199,10 @@ const HomePage = () => {
             imageSrc="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/www.framer.webp"
             imageAlt="AG LABS - Landing Pages"
           />
-          <PerspectiveMarqueePlayer />
-          <CtaCustomProject />
+        </div>
+        <PerspectiveMarqueePlayer />
+        <CtaCustomProject />
+        <div className="mx-auto max-w-5xl px-6 py-14 md:py-20">
           <CtaEmailCard
             title="Fique ligado!"
             description="Receba conteúdos exclusivos, automações e novidades com exclusividade."

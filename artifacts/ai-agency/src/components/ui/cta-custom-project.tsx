@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { HoverButton } from "@/components/ui/hover-button";
 
 const WHATSAPP_URL =
   "https://wa.me/556493259857?text=Olá!%20Tenho%20interesse%20em%20um%20projeto%20personalizado%20com%20a%20AG%20LABS.";
@@ -10,11 +10,10 @@ export function CtaCustomProject() {
   return (
     <section
       id="projetos-personalizados"
-      className="relative mx-auto w-full pt-40 px-6 text-center md:px-8 
+      className="relative w-full pt-20 px-6 text-center md:px-8 
       min-h-[calc(100vh-40px)] overflow-hidden 
       bg-[linear-gradient(to_bottom,#fff,#ffffff_50%,#e8e8e8_88%)]  
-      dark:bg-[linear-gradient(to_bottom,#000,#0000_30%,#898e8e_78%,#ffffff_99%_50%)] 
-      rounded-b-xl"
+      dark:bg-[linear-gradient(to_bottom,#050505,#050505_30%,#898e8e_78%,#ffffff_99%_50%)]"
     >
       {/* Grid BG */}
       <div
@@ -29,9 +28,9 @@ export function CtaCustomProject() {
       <div
         className="absolute left-1/2 top-[calc(100%-90px)] lg:top-[calc(100%-150px)] 
         h-[500px] w-[700px] md:h-[500px] md:w-[1100px] lg:h-[750px] lg:w-[140%] 
-        -translate-x-1/2 rounded-[100%] border-[#B48CDE] bg-white dark:bg-black 
-        bg-[radial-gradient(closest-side,#fff_82%,#000000)] 
-        dark:bg-[radial-gradient(closest-side,#000_82%,#ffffff)] 
+        -translate-x-1/2 rounded-[100%] border-blue-500 bg-white dark:bg-black 
+        bg-[radial-gradient(closest-side,#fff_82%,#3b82f6)] 
+        dark:bg-[radial-gradient(closest-side,#050505_82%,#3b82f6)] 
         animate-fade-up"
       />
 
@@ -71,14 +70,11 @@ export function CtaCustomProject() {
 
       {/* CTA */}
       <div className="flex justify-center">
-        <Button
-          asChild
-          className="mt-[-20px] w-fit md:w-64 z-20 font-geist tracking-tighter text-center text-lg"
-        >
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+          <HoverButton className="mt-[-20px] z-20 font-geist tracking-tighter text-center text-lg">
             Falar no WhatsApp
-          </a>
-        </Button>
+          </HoverButton>
+        </a>
       </div>
 
       {/* Bottom Fade */}
