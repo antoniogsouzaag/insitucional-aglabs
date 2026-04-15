@@ -202,15 +202,17 @@ const HomePage = () => {
         </div>
         <PerspectiveMarqueePlayer />
         <CtaCustomProject />
-        <div className="mx-auto max-w-5xl px-6 py-14 md:py-20">
-          <CtaEmailCard
-            title="Fique ligado!"
-            description="Receba conteúdos exclusivos, automações e novidades com exclusividade."
-            buttonText="Quero receber"
-            inputPlaceholder="Seu melhor e-mail"
-            imageSrc="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=900?q=80&w=2574&auto=format&fit=crop"
-            onSubmit={handleEmailSubmit}
-          />
+        <div className="w-full bg-[#050505] py-14 md:py-20">
+          <div className="mx-auto max-w-5xl px-6">
+            <CtaEmailCard
+              title="Fique ligado!"
+              description="Receba conteúdos exclusivos, automações e novidades com exclusividade."
+              buttonText="Quero receber"
+              inputPlaceholder="Seu melhor e-mail"
+              imageSrc="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=900?q=80&w=2574&auto=format&fit=crop"
+              onSubmit={handleEmailSubmit}
+            />
+          </div>
         </div>
       </section>
 

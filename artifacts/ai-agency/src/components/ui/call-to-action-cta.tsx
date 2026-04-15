@@ -20,7 +20,7 @@ const CtaEmailCard = React.forwardRef<HTMLDivElement, CtaEmailCardProps>(
   (
     {
       className,
-      imageSrc: _imageSrc,
+      imageSrc,
       title,
       description,
       inputPlaceholder = "Seu e-mail",
@@ -81,11 +81,18 @@ const CtaEmailCard = React.forwardRef<HTMLDivElement, CtaEmailCardProps>(
       <div
         ref={ref}
         className={cn(
-          "relative w-full overflow-hidden rounded-xl border border-white/10 bg-[#050505] text-card-foreground shadow",
+          "relative w-full overflow-hidden rounded-xl border bg-card text-card-foreground shadow",
           className
         )}
         {...props}
       >
+        <img
+          src={imageSrc}
+          alt="Background"
+          className="absolute inset-0 h-full w-full object-cover"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-black/60" />
 
         <motion.div
           className="relative z-10 grid h-full grid-cols-1 items-center gap-8 p-8 md:grid-cols-2 md:p-12 lg:p-16"
