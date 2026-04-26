@@ -537,9 +537,10 @@
 
 @media (max-width: 768px) {
   .carousel-wrapper {
-    height: auto;
-    min-height: 100svh;
-    padding: 3rem 1.5rem 10rem;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+    padding: 3rem 1.5rem 9rem;
   }
 
   .carousel-inner {
