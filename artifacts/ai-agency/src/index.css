@@ -537,8 +537,9 @@
 
 @media (max-width: 768px) {
   .carousel-wrapper {
-    padding: 3rem 1.5rem 8rem;
-    min-height: auto;
+    height: auto;
+    min-height: 100svh;
+    padding: 3rem 1.5rem 10rem;
   }
 
   .carousel-inner {
