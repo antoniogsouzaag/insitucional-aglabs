@@ -540,7 +540,7 @@
     height: 100dvh;
     min-height: 0;
     overflow: hidden;
-    padding: 3rem 1.5rem 9rem;
+    padding: 3rem 1.5rem 12rem;
   }
 
   .carousel-inner {
