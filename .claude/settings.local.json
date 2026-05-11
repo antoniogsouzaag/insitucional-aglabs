@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm dev *)",
+      "Bash(netstat -ano)",
+      "Bash(findstr \"LISTEN\")",
+      "Bash(findstr \":3\")",
+      "Bash(wmic process *)",
+      "Bash(taskkill /PID 5572 /F)",
+      "Bash(set PORT=5173)",
+      "Bash(pnpm typecheck *)",
+      "Bash(pnpm build *)",
+      "Bash(dir /a \"C:\\\\Users\\\\antonio\\\\Desktop\\\\antonio garcia landingpage\\\\insitucional-aglabs\\\\artifacts\\\\ai-agency\")",
+      "Bash(findstr /i env)",
+      "Bash(curl *)"
+    ]
+  }
+}
