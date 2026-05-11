@@ -40,7 +40,6 @@ const footerLinks: FooterSection[] = [
       { title: 'Sobre Nós', href: '#sobre-nos' },
       { title: 'Soluções', href: '#services' },
       { title: 'Produtos', href: '#cases' },
-      { title: 'Blog', href: '/blog' },
     ],
   },
   {
@@ -58,6 +57,7 @@ const footerLinks: FooterSection[] = [
       { title: 'Sobre a AG LABS', href: '#sobre-nos' },
       { title: 'Política de Privacidade', href: '/politica-de-privacidade' },
       { title: 'Termos de Uso', href: '/termos-de-uso' },
+      { title: 'Blog', href: '/blog' },
     ],
   },
   {
