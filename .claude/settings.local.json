@@ -22,7 +22,8 @@
       "PowerShell(cmd /c dir \"C:\\\\Users\\\\antonio\\\\Desktop\\\\antonio garcia landingpage\\\\insitucional-aglabs\\\\node_modules\\\\.pnpm\\\\@paper-design+shaders@0.0.76\\\\node_modules\\\\@paper-design\\\\shaders\\\\dist\" /a)",
       "Bash(npx vite *)",
       "Bash(grep -o \"void main[^\\\\\\\\\\\\\\\\]*\" dist/assets/blog-DaZOl0mw.js)",
-      "Bash(grep -o \"@layer [a-z]*{[^@]*canvas,audio\" dist/assets/index-BvMFVWQp.css)"
+      "Bash(grep -o \"@layer [a-z]*{[^@]*canvas,audio\" dist/assets/index-BvMFVWQp.css)",
+      "Bash(git push *)"
     ]
   }
 }
