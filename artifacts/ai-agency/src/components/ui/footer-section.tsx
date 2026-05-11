@@ -40,6 +40,7 @@ const footerLinks: FooterSection[] = [
       { title: 'Sobre Nós', href: '#sobre-nos' },
       { title: 'Soluções', href: '#services' },
       { title: 'Produtos', href: '#cases' },
+      { title: 'Blog', href: '/blog' },
     ],
   },
   {
