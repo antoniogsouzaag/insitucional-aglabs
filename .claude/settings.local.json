@@ -23,7 +23,14 @@
       "Bash(npx vite *)",
       "Bash(grep -o \"void main[^\\\\\\\\\\\\\\\\]*\" dist/assets/blog-DaZOl0mw.js)",
       "Bash(grep -o \"@layer [a-z]*{[^@]*canvas,audio\" dist/assets/index-BvMFVWQp.css)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(xargs cat *)",
+      "PowerShell($dir = \"C:\\\\Users\\\\antonio\\\\Desktop\\\\antonio garcia landingpage\\\\insitucional-aglabs\\\\artifacts\\\\ai-agency\"; $env:PORT = \"5173\"; Start-Process -NoNewWindow -FilePath \"pnpm\" -ArgumentList \"dev\" -WorkingDirectory $dir)",
+      "Bash(PORT=5173 pnpm dev)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(gh auth *)",
+      "Bash(gh repo *)",
+      "PowerShell(gh *)"
     ]
   }
 }
