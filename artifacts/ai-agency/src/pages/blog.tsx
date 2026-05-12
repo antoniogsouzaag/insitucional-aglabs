@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { ArrowLeft, ArrowUpRight, Clock, Search } from "lucide-react";
 import { MeshGradient, Dithering } from "@paper-design/shaders-react";
 import { blogStore, type BlogPost } from "@/lib/blog-store";
+import BlogsLatest from "@/components/ui/blogs";
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("pt-BR", {
@@ -185,6 +186,9 @@ export default function BlogPage() {
             ))}
           </div>
         </div>
+
+        {/* Novidades — últimos lançamentos */}
+        {!loading && posts.length > 0 && <BlogsLatest posts={posts} />}
 
         {/* Content */}
         <div className="max-w-6xl mx-auto px-6 md:px-12 py-12">

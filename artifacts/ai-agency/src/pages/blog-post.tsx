@@ -139,11 +139,14 @@ export default function BlogPostPage() {
             <p className="text-white/40 text-sm mb-8 max-w-sm leading-relaxed">
               Automatize processos, crie agentes de IA e construa soluções sob medida para o seu negócio.
             </p>
-            <Link href="/">
-              <span className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-colors cursor-pointer">
-                Falar com especialista <ArrowUpRight className="w-4 h-4" />
-              </span>
-            </Link>
+            <a
+              href="https://wa.me/556493259857?text=Olá!%20Tenho%20interesse%20em%20um%20projeto%20personalizado%20com%20a%20AG%20LABS."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-colors"
+            >
+              Falar com especialista <ArrowUpRight className="w-4 h-4" />
+            </a>
           </div>
 
           <div className="pb-16 border-t border-white/5 pt-8">
