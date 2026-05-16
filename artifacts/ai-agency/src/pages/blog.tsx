@@ -32,14 +32,14 @@ function PostCard({ post, index }: { post: BlogPost; index: number }) {
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 to-transparent" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 to-transparent" />
 
         <div className="absolute top-4 right-4">
           <ArrowUpRight className="w-4 h-4 text-white/0 group-hover:text-blue-400 transition-colors duration-300" />
         </div>
 
-        <div className="absolute inset-0 p-5 md:p-6 flex flex-col justify-end">
-          <span className="text-blue-400 text-[10px] font-semibold uppercase tracking-widest mb-2">
+        <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+          <span className="block text-blue-400 text-[10px] font-semibold uppercase tracking-widest mb-2">
             {post.category}
           </span>
           <h2
@@ -49,11 +49,6 @@ function PostCard({ post, index }: { post: BlogPost; index: number }) {
           >
             {post.title}
           </h2>
-          {isWide && (
-            <p className="hidden md:block text-white/40 text-xs leading-relaxed mb-3 line-clamp-1">
-              {post.excerpt}
-            </p>
-          )}
           <div className="flex items-center gap-3 text-xs text-white/30">
             <span className="flex items-center gap-1">
               <Clock className="w-3 h-3" />
