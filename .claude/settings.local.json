@@ -30,7 +30,9 @@
       "Bash(echo \"PID: $!\")",
       "Bash(gh auth *)",
       "Bash(gh repo *)",
-      "PowerShell(gh *)"
+      "PowerShell(gh *)",
+      "Bash(git remote *)",
+      "Bash(git config *)"
     ]
   }
 }
