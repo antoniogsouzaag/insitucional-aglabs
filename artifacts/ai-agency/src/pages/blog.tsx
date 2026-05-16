@@ -19,36 +19,42 @@ function PostCard({ post, index }: { post: BlogPost; index: number }) {
   return (
     <Link href={`/blog/${post.slug}`}>
       <article
-        className={`group cursor-pointer relative overflow-hidden bg-[#0a0a0a] border border-white/8 hover:border-blue-500/40 transition-colors duration-300 ${
-          isWide ? "md:col-span-2 aspect-[2/1]" : "aspect-[4/3]"
+        className={`group cursor-pointer relative overflow-hidden bg-[#0a0a0a] border border-white/8 hover:border-blue-500/40 transition-colors duration-300 h-56 sm:h-64 ${
+          isWide ? "sm:col-span-2 md:col-span-2" : ""
         }`}
       >
-        {post.coverImage && (
+        {post.coverImage ? (
           <img
             src={post.coverImage}
             alt={post.title}
             className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-55 transition-opacity duration-500"
           />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-950/30 to-transparent" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-transparent" />
 
-        {/* Ícone no canto superior direito */}
         <div className="absolute top-4 right-4">
           <ArrowUpRight className="w-4 h-4 text-white/0 group-hover:text-blue-400 transition-colors duration-300" />
         </div>
 
-        <div className="absolute inset-0 p-5 flex flex-col justify-end">
-          <span className="text-blue-400 text-xs font-semibold uppercase tracking-widest mb-2">
+        <div className="absolute inset-0 p-5 md:p-6 flex flex-col justify-end">
+          <span className="text-blue-400 text-[10px] font-semibold uppercase tracking-widest mb-2">
             {post.category}
           </span>
           <h2
-            className={`font-bold text-white leading-snug mb-3 group-hover:text-blue-50 transition-colors line-clamp-2 ${
-              isWide ? "text-xl md:text-2xl" : "text-sm md:text-base"
+            className={`font-bold text-white leading-snug mb-2.5 group-hover:text-blue-50 transition-colors line-clamp-2 ${
+              isWide ? "text-lg md:text-xl" : "text-base md:text-lg"
             }`}
           >
             {post.title}
           </h2>
-          <div className="flex items-center gap-3 text-xs text-white/35">
+          {isWide && (
+            <p className="hidden md:block text-white/40 text-xs leading-relaxed mb-3 line-clamp-1">
+              {post.excerpt}
+            </p>
+          )}
+          <div className="flex items-center gap-3 text-xs text-white/30">
             <span className="flex items-center gap-1">
               <Clock className="w-3 h-3" />
               {post.readTime} min
@@ -193,12 +199,12 @@ export default function BlogPage() {
         {/* Content */}
         <div className="max-w-6xl mx-auto px-6 md:px-12 py-12">
           {loading && (
-            <div className="space-y-2">
-              <Skeleton className="w-full aspect-[3/1]" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-                <Skeleton className="aspect-[4/3]" />
-                <Skeleton className="aspect-[4/3]" />
-                <Skeleton className="aspect-[4/3]" />
+            <div className="space-y-3">
+              <Skeleton className="w-full h-56 sm:h-64" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                <Skeleton className="h-56 sm:h-64" />
+                <Skeleton className="h-56 sm:h-64" />
+                <Skeleton className="h-56 sm:h-64" />
               </div>
             </div>
           )}
@@ -211,7 +217,7 @@ export default function BlogPage() {
 
           {!loading && featured && (
             <Link href={`/blog/${featured.slug}`}>
-              <article className="group cursor-pointer relative overflow-hidden mb-2 aspect-[21/9] md:aspect-[3/1] border border-white/8 hover:border-blue-500/40 transition-colors duration-300">
+              <article className="group cursor-pointer relative overflow-hidden mb-3 h-56 sm:h-72 md:h-80 border border-white/8 hover:border-blue-500/40 transition-colors duration-300">
                 {featured.coverImage && (
                   <img
                     src={featured.coverImage}
@@ -248,7 +254,7 @@ export default function BlogPage() {
           )}
 
           {!loading && rest.length > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 mt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-3">
               {rest.map((post, i) => (
                 <PostCard key={post.id} post={post} index={i} />
               ))}

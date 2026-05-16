@@ -32,7 +32,8 @@
       "Bash(gh repo *)",
       "PowerShell(gh *)",
       "Bash(git remote *)",
-      "Bash(git config *)"
+      "Bash(git config *)",
+      "Bash(grep -E \"\\\\.\\(ts|tsx|js|jsx\\)$\")"
     ]
   }
 }

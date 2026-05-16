@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "wouter";
-import { ArrowLeft, Clock, Calendar, User, ArrowUpRight, Share2, Check } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, User, ArrowUpRight, Share2, Check, MessageSquare, Send } from "lucide-react";
 import { blogStore, type BlogPost } from "@/lib/blog-store";
+import { commentStore, type BlogComment } from "@/lib/comment-store";
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("pt-BR", {
@@ -15,11 +16,42 @@ export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPost | null | "loading">("loading");
   const [copied, setCopied] = useState(false);
+  const [comments, setComments] = useState<BlogComment[]>([]);
+  const [commentName, setCommentName] = useState("");
+  const [commentText, setCommentText] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   useEffect(() => {
     if (!slug) { setPost(null); return; }
     blogStore.getBySlug(slug).then((data) => setPost(data));
   }, [slug]);
+
+  useEffect(() => {
+    if (post && post !== "loading") {
+      commentStore.getByPostId(post.id).then(setComments).catch(() => {});
+    }
+  }, [post]);
+
+  async function handleSubmitComment(e: React.FormEvent) {
+    e.preventDefault();
+    if (!post || post === "loading") return;
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      const created = await commentStore.create(post.id, commentName.trim(), commentText.trim());
+      setComments((prev) => [...prev, created]);
+      setCommentName("");
+      setCommentText("");
+      setSubmitSuccess(true);
+      setTimeout(() => setSubmitSuccess(false), 3000);
+    } catch {
+      setSubmitError("Erro ao enviar comentário. Tente novamente.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   const handleShare = async () => {
     const url = window.location.href;
@@ -147,6 +179,82 @@ export default function BlogPostPage() {
             >
               Falar com especialista <ArrowUpRight className="w-4 h-4" />
             </a>
+          </div>
+
+          {/* Comments */}
+          <div className="mb-16">
+            <div className="flex items-center gap-2 mb-8 border-t border-white/5 pt-10">
+              <MessageSquare className="w-5 h-5 text-blue-400" />
+              <h2 className="text-lg font-bold text-white">
+                Comentários
+                {comments.length > 0 && (
+                  <span className="ml-2 text-sm text-white/30 font-normal">({comments.length})</span>
+                )}
+              </h2>
+            </div>
+
+            {/* Comment list */}
+            {comments.length === 0 ? (
+              <p className="text-white/30 text-sm mb-10">Seja o primeiro a comentar.</p>
+            ) : (
+              <ul className="space-y-6 mb-10">
+                {comments.map((c) => (
+                  <li key={c.id} className="border border-white/5 p-5">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-sm font-semibold text-white">{c.authorName}</span>
+                      <span className="text-xs text-white/25">
+                        {new Date(c.createdAt).toLocaleDateString("pt-BR", {
+                          day: "2-digit",
+                          month: "short",
+                          year: "numeric",
+                        })}
+                      </span>
+                    </div>
+                    <p className="text-white/50 text-sm leading-relaxed whitespace-pre-wrap">{c.content}</p>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/* Comment form */}
+            <form onSubmit={handleSubmitComment} className="border border-white/8 p-6 space-y-4">
+              <h3 className="text-sm font-semibold text-white/70 uppercase tracking-wider">Deixe um comentário</h3>
+              <input
+                type="text"
+                placeholder="Seu nome"
+                value={commentName}
+                onChange={(e) => setCommentName(e.target.value)}
+                required
+                maxLength={100}
+                className="w-full bg-white/5 border border-white/10 text-white text-sm px-4 py-2.5 placeholder:text-white/20 focus:outline-none focus:border-blue-500/50 transition-colors"
+              />
+              <textarea
+                placeholder="Escreva seu comentário..."
+                value={commentText}
+                onChange={(e) => setCommentText(e.target.value)}
+                required
+                maxLength={1000}
+                rows={4}
+                className="w-full bg-white/5 border border-white/10 text-white text-sm px-4 py-2.5 placeholder:text-white/20 focus:outline-none focus:border-blue-500/50 transition-colors resize-none"
+              />
+              {submitError && (
+                <p className="text-red-400 text-xs">{submitError}</p>
+              )}
+              <button
+                type="submit"
+                disabled={submitting || !commentName.trim() || !commentText.trim()}
+                className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 disabled:opacity-40 disabled:cursor-not-allowed text-white text-sm font-semibold transition-colors"
+              >
+                {submitting ? (
+                  <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                ) : submitSuccess ? (
+                  <Check className="w-4 h-4" />
+                ) : (
+                  <Send className="w-4 h-4" />
+                )}
+                {submitSuccess ? "Comentário enviado!" : "Enviar comentário"}
+              </button>
+            </form>
           </div>
 
           <div className="pb-16 border-t border-white/5 pt-8">
