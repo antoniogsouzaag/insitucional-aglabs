@@ -212,7 +212,7 @@ export default function BlogPage() {
 
           {!loading && featured && (
             <Link href={`/blog/${featured.slug}`}>
-              <article className="group cursor-pointer relative overflow-hidden mb-3 h-56 sm:h-72 md:h-80 border border-white/8 hover:border-blue-500/40 transition-colors duration-300">
+              <article className="group cursor-pointer relative overflow-hidden mb-3 h-72 sm:h-80 md:h-96 border border-white/8 hover:border-blue-500/40 transition-colors duration-300">
                 {featured.coverImage && (
                   <img
                     src={featured.coverImage}
@@ -227,7 +227,7 @@ export default function BlogPage() {
                   Ler artigo <ArrowUpRight className="w-3.5 h-3.5" />
                 </div>
 
-                <div className="absolute inset-0 p-8 md:p-14 flex flex-col justify-end max-w-3xl">
+                <div className="absolute inset-0 p-6 sm:p-8 md:p-14 flex flex-col justify-end max-w-3xl">
                   <span className="inline-block text-blue-400 text-xs font-semibold uppercase tracking-[0.2em] mb-4">
                     {featured.category} — Destaque
                   </span>
