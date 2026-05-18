@@ -21,7 +21,7 @@ function fromRow(row: Record<string, unknown>): BlogPost {
     title: row.title as string,
     slug: row.slug as string,
     excerpt: row.excerpt as string,
-    content: row.content as string,
+    content: (row.content as string) ?? "",
     category: row.category as string,
     coverImage: (row.cover_image as string) ?? "",
     published: row.published as boolean,
@@ -30,6 +30,17 @@ function fromRow(row: Record<string, unknown>): BlogPost {
     author: row.author as string,
     readTime: (row.read_time as number) ?? 5,
   };
+}
+
+// Columns needed for listing (excludes heavy `content` field)
+const LIST_COLUMNS =
+  "id, title, slug, excerpt, category, cover_image, published, created_at, updated_at, author, read_time";
+
+const CACHE_TTL = 60_000; // 1 minute
+let listCache: { data: BlogPost[]; at: number } | null = null;
+
+export function invalidateBlogListCache() {
+  listCache = null;
 }
 
 export const blogStore = {
@@ -42,14 +53,20 @@ export const blogStore = {
     return (data ?? []).map(fromRow);
   },
 
+  /** Fetches list metadata only (no content). Cached for 60 s. */
   async getPublished(): Promise<BlogPost[]> {
+    if (listCache && Date.now() - listCache.at < CACHE_TTL) {
+      return listCache.data;
+    }
     const { data, error } = await supabase
       .from("blog_posts")
-      .select("*")
+      .select(LIST_COLUMNS)
       .eq("published", true)
       .order("created_at", { ascending: false });
     if (error) throw error;
-    return (data ?? []).map(fromRow);
+    const posts = (data ?? []).map(fromRow);
+    listCache = { data: posts, at: Date.now() };
+    return posts;
   },
 
   async getBySlug(slug: string): Promise<BlogPost | null> {
@@ -79,6 +96,7 @@ export const blogStore = {
       .select()
       .single();
     if (error) throw error;
+    invalidateBlogListCache();
     return fromRow(data);
   },
 
@@ -101,12 +119,14 @@ export const blogStore = {
       .select()
       .single();
     if (error) throw error;
+    invalidateBlogListCache();
     return fromRow(data);
   },
 
   async delete(id: string): Promise<void> {
     const { error } = await supabase.from("blog_posts").delete().eq("id", id);
     if (error) throw error;
+    invalidateBlogListCache();
   },
 
   async getCategories(): Promise<string[]> {

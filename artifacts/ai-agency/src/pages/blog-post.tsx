@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "wouter";
 import { ArrowLeft, Clock, Calendar, User, ArrowUpRight, Share2, Check, MessageSquare, Send } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { blogStore, type BlogPost } from "@/lib/blog-store";
 import { commentStore, type BlogComment } from "@/lib/comment-store";
 
@@ -25,7 +27,9 @@ export default function BlogPostPage() {
 
   useEffect(() => {
     if (!slug) { setPost(null); return; }
-    blogStore.getBySlug(slug).then((data) => setPost(data));
+    blogStore.getBySlug(slug)
+      .then((data) => setPost(data))
+      .catch(() => setPost(null));
   }, [slug]);
 
   useEffect(() => {
@@ -154,10 +158,19 @@ export default function BlogPostPage() {
               prose-p:text-white/50 prose-p:leading-relaxed prose-p:mb-5
               prose-strong:text-white prose-strong:font-semibold
               prose-ul:text-white/50 prose-ul:my-5 prose-ul:space-y-2
+              prose-ol:text-white/50 prose-ol:my-5 prose-ol:space-y-2
               prose-li:pl-1
-              prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+              prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
+              prose-blockquote:border-l-blue-500 prose-blockquote:text-white/40
+              prose-code:text-blue-300 prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+              prose-pre:bg-white/5 prose-pre:border prose-pre:border-white/10
+              prose-hr:border-white/10
+              prose-img:rounded-sm"
+          >
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {post.content}
+            </ReactMarkdown>
+          </div>
 
           {/* CTA */}
           <div className="mt-20 mb-16 border border-white/8 hover:border-blue-500/30 transition-colors duration-300 p-8 md:p-12 relative overflow-hidden group">

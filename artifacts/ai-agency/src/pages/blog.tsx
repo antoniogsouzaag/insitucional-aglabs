@@ -27,6 +27,8 @@ function PostCard({ post, index }: { post: BlogPost; index: number }) {
           <img
             src={post.coverImage}
             alt={post.title}
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-55 transition-opacity duration-500"
           />
         ) : (
@@ -69,14 +71,22 @@ function Skeleton({ className }: { className?: string }) {
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState(false);
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   useEffect(() => {
-    blogStore.getPublished().then((data) => {
-      setPosts(data);
-      setLoading(false);
-    });
+    setFetchError(false);
+    blogStore
+      .getPublished()
+      .then((data) => {
+        setPosts(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setFetchError(true);
+        setLoading(false);
+      });
   }, []);
 
   const categories = useMemo(() => {
@@ -204,7 +214,26 @@ export default function BlogPage() {
             </div>
           )}
 
-          {!loading && filtered.length === 0 && (
+          {fetchError && (
+            <div className="py-32 text-center flex flex-col items-center gap-4">
+              <p className="text-white/30 text-lg">Não foi possível carregar os artigos.</p>
+              <button
+                onClick={() => {
+                  setLoading(true);
+                  setFetchError(false);
+                  blogStore
+                    .getPublished()
+                    .then((data) => { setPosts(data); setLoading(false); })
+                    .catch(() => { setFetchError(true); setLoading(false); });
+                }}
+                className="px-4 py-2 text-xs font-semibold uppercase tracking-wider border border-white/10 text-white/40 hover:border-blue-500/50 hover:text-blue-400 transition"
+              >
+                Tentar novamente
+              </button>
+            </div>
+          )}
+
+          {!loading && !fetchError && filtered.length === 0 && (
             <div className="py-32 text-center text-white/20">
               <p className="text-lg">Nenhum artigo encontrado.</p>
             </div>
@@ -217,6 +246,8 @@ export default function BlogPage() {
                   <img
                     src={featured.coverImage}
                     alt={featured.title}
+                    loading="eager"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover opacity-35 group-hover:opacity-50 transition-opacity duration-500"
                   />
                 )}
