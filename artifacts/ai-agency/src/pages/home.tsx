@@ -53,6 +53,7 @@ const HomePage = () => {
     { label: "SOBRE NÓS", href: "#sobre-nos" },
     { label: "SOLUÇÕES", href: "#services" },
     { label: "PRODUTOS", href: "#cases" },
+    { label: "BLOG", href: "/blog" },
   ];
 
   const socialLinks = [
