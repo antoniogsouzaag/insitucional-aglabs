@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect, memo } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, ArrowUpRight, Clock, Search } from "lucide-react";
+import { MeshGradient, Dithering } from "@paper-design/shaders-react";
 import { blogStore, type BlogPost } from "@/lib/blog-store";
 import BlogsLatest from "@/components/ui/blogs";
 
@@ -122,11 +123,25 @@ export default function BlogPage() {
       <main className="pt-14">
         {/* Hero */}
         <div className="relative border-b border-white/8 overflow-hidden">
-          {/* CSS gradient — zero GPU overhead, visually equivalent */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,#071a5e,transparent)] z-0" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#040a18] via-[#030820] to-[#050505] z-0" />
-          {/* Fade de saída para baixo */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-[#050505] z-10" />
+          {/* Shader — z-0, cores apagadas para não brigar com o texto */}
+          <MeshGradient
+            colors={["#040a18", "#071a5e", "#030820", "#04194a"]}
+            swirl={0.3}
+            distortion={0.5}
+            speed={0.025}
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 0 }}
+          />
+          <Dithering
+            colors={["#06060f", "#05051a", "#030310"]}
+            intensity={0.18}
+            shape="simplex"
+            speed={0.025}
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 1 }}
+          />
+          {/* Overlay escuro para legibilidade — z-10 */}
+          <div className="absolute inset-0 bg-black/60 z-10" />
+          {/* Fade de saída para baixo — z-10 */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-[#050505] z-10" />
 
           {/* Texto — z-20, sempre acima de tudo */}
           <div className="relative z-20 max-w-6xl mx-auto px-6 md:px-12 py-20 md:py-28">
