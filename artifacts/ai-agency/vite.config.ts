@@ -40,13 +40,19 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ["react", "react-dom"],
-          motion: ["framer-motion"],
-          supabase: ["@supabase/supabase-js"],
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (id.includes("react-dom") || id.includes("react/")) return "vendor";
+            if (id.includes("framer-motion")) return "motion";
+            if (id.includes("@supabase")) return "supabase";
+            if (id.includes("react-markdown") || id.includes("remark") || id.includes("rehype") || id.includes("mdast") || id.includes("micromark") || id.includes("unified")) return "markdown";
+            if (id.includes("@paper-design/shaders")) return "shaders";
+            if (id.includes("lucide-react")) return "icons";
+          }
         },
       },
     },
+    chunkSizeWarningLimit: 600,
   },
   server: {
     port,

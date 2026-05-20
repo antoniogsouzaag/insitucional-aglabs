@@ -27,16 +27,20 @@ export default function BlogPostPage() {
 
   useEffect(() => {
     if (!slug) { setPost(null); return; }
-    blogStore.getBySlug(slug)
-      .then((data) => setPost(data))
-      .catch(() => setPost(null));
+    let cancelled = false;
+    blogStore.getBySlug(slug).then((data) => {
+      if (cancelled) return;
+      setPost(data);
+      if (data) {
+        commentStore.getByPostId(data.id).then((c) => {
+          if (!cancelled) setComments(c);
+        }).catch(() => {});
+      }
+    }).catch(() => {
+      if (!cancelled) setPost(null);
+    });
+    return () => { cancelled = true; };
   }, [slug]);
-
-  useEffect(() => {
-    if (post && post !== "loading") {
-      commentStore.getByPostId(post.id).then(setComments).catch(() => {});
-    }
-  }, [post]);
 
   async function handleSubmitComment(e: React.FormEvent) {
     e.preventDefault();
@@ -119,6 +123,9 @@ export default function BlogPostPage() {
             <img
               src={post.coverImage}
               alt={post.title}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
               className="w-full h-full object-cover opacity-40"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/50 to-transparent" />

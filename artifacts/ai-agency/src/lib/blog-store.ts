@@ -36,11 +36,15 @@ function fromRow(row: Record<string, unknown>): BlogPost {
 const LIST_COLUMNS =
   "id, title, slug, excerpt, category, cover_image, published, created_at, updated_at, author, read_time";
 
-const CACHE_TTL = 60_000; // 1 minute
+const LIST_CACHE_TTL = 5 * 60_000; // 5 minutes
+const SLUG_CACHE_TTL = 10 * 60_000; // 10 minutes
+
 let listCache: { data: BlogPost[]; at: number } | null = null;
+const slugCache = new Map<string, { data: BlogPost; at: number }>();
 
 export function invalidateBlogListCache() {
   listCache = null;
+  slugCache.clear();
 }
 
 export const blogStore = {
@@ -53,9 +57,9 @@ export const blogStore = {
     return (data ?? []).map(fromRow);
   },
 
-  /** Fetches list metadata only (no content). Cached for 60 s. */
+  /** Fetches list metadata only (no content). Cached for 5 min. */
   async getPublished(): Promise<BlogPost[]> {
-    if (listCache && Date.now() - listCache.at < CACHE_TTL) {
+    if (listCache && Date.now() - listCache.at < LIST_CACHE_TTL) {
       return listCache.data;
     }
     const { data, error } = await supabase
@@ -69,14 +73,21 @@ export const blogStore = {
     return posts;
   },
 
+  /** Fetches full post by slug. Cached per-slug for 10 min. */
   async getBySlug(slug: string): Promise<BlogPost | null> {
+    const cached = slugCache.get(slug);
+    if (cached && Date.now() - cached.at < SLUG_CACHE_TTL) {
+      return cached.data;
+    }
     const { data, error } = await supabase
       .from("blog_posts")
       .select("*")
       .eq("slug", slug)
       .maybeSingle();
     if (error || !data) return null;
-    return fromRow(data);
+    const post = fromRow(data);
+    slugCache.set(slug, { data: post, at: Date.now() });
+    return post;
   },
 
   async create(post: Omit<BlogPost, "id" | "createdAt" | "updatedAt">): Promise<BlogPost> {
@@ -129,12 +140,10 @@ export const blogStore = {
     invalidateBlogListCache();
   },
 
+  /** Derives categories from already-cached published posts — no extra DB call. */
   async getCategories(): Promise<string[]> {
-    const { data } = await supabase
-      .from("blog_posts")
-      .select("category")
-      .eq("published", true);
-    const cats = new Set((data ?? []).map((r) => r.category as string));
+    const posts = await this.getPublished();
+    const cats = new Set(posts.map((p) => p.category));
     return Array.from(cats);
   },
 };
