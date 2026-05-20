@@ -34,7 +34,8 @@
       "Bash(git remote *)",
       "Bash(git config *)",
       "Bash(grep -E \"\\\\.\\(ts|tsx|js|jsx\\)$\")",
-      "Bash(pnpm add *)"
+      "Bash(pnpm add *)",
+      "Bash(npx tsc *)"
     ]
   }
 }
