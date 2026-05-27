@@ -105,8 +105,18 @@ export default function BlogPage() {
     });
   }, [posts, search, activeCategory]);
 
-  const featured = filtered[0];
-  const rest = filtered.slice(1);
+  const latestIds = useMemo(
+    () => new Set(posts.slice(0, 3).map((p) => p.id)),
+    [posts]
+  );
+
+  const feedPosts = useMemo(
+    () => filtered.filter((p) => !latestIds.has(p.id)),
+    [filtered, latestIds]
+  );
+
+  const featured = feedPosts[0];
+  const rest = feedPosts.slice(1);
 
   return (
     <div className="min-h-screen bg-[#050505] text-white">
@@ -233,7 +243,7 @@ export default function BlogPage() {
             </div>
           )}
 
-          {!loading && !fetchError && filtered.length === 0 && (
+          {!loading && !fetchError && feedPosts.length === 0 && (
             <div className="py-32 text-center text-white/20">
               <p className="text-lg">Nenhum artigo encontrado.</p>
             </div>
