@@ -192,7 +192,7 @@ export default function BlogPostPage() {
               Automatize processos, crie agentes de IA e construa soluções sob medida para o seu negócio.
             </p>
             <a
-              href="https://wa.me/556492109656?text=Olá!%20Tenho%20interesse%20em%20um%20projeto%20personalizado%20com%20a%20AG%20LABS."
+              href="https://wa.me/556493259857?text=Olá!%20Tenho%20interesse%20em%20um%20projeto%20personalizado%20com%20a%20AG%20LABS."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-colors"
