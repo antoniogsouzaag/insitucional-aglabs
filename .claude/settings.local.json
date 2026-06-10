@@ -35,7 +35,9 @@
       "Bash(git config *)",
       "Bash(grep -E \"\\\\.\\(ts|tsx|js|jsx\\)$\")",
       "Bash(pnpm add *)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(xargs grep -l \"api\\\\|route\\\\|endpoint\")",
+      "Bash(xargs grep -l \"textarea\\\\|form\\\\|input\")"
     ]
   }
 }

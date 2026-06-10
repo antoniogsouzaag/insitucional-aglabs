@@ -19,6 +19,8 @@ export default function BlogPostPage() {
   const [post, setPost] = useState<BlogPost | null | "loading">("loading");
   const [copied, setCopied] = useState(false);
   const [comments, setComments] = useState<BlogComment[]>([]);
+  const [commentsLoading, setCommentsLoading] = useState(false);
+  const [commentsError, setCommentsError] = useState("");
   const [commentName, setCommentName] = useState("");
   const [commentText, setCommentText] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -32,9 +34,21 @@ export default function BlogPostPage() {
       if (cancelled) return;
       setPost(data);
       if (data) {
-        commentStore.getByPostId(data.id).then((c) => {
-          if (!cancelled) setComments(c);
-        }).catch(() => {});
+        setCommentsLoading(true);
+        setCommentsError("");
+        commentStore.getByPostId(data.id)
+          .then((c) => {
+            if (!cancelled) setComments(c);
+          })
+          .catch((err: unknown) => {
+            if (!cancelled) {
+              const msg = err instanceof Error ? err.message : "Erro ao carregar comentários.";
+              setCommentsError(msg);
+            }
+          })
+          .finally(() => {
+            if (!cancelled) setCommentsLoading(false);
+          });
       }
     }).catch(() => {
       if (!cancelled) setPost(null);
@@ -54,8 +68,9 @@ export default function BlogPostPage() {
       setCommentText("");
       setSubmitSuccess(true);
       setTimeout(() => setSubmitSuccess(false), 3000);
-    } catch {
-      setSubmitError("Erro ao enviar comentário. Tente novamente.");
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Erro ao enviar comentário. Tente novamente.";
+      setSubmitError(msg);
     } finally {
       setSubmitting(false);
     }
@@ -214,7 +229,14 @@ export default function BlogPostPage() {
             </div>
 
             {/* Comment list */}
-            {comments.length === 0 ? (
+            {commentsLoading ? (
+              <div className="flex items-center gap-2 text-white/30 text-sm mb-10">
+                <div className="w-3.5 h-3.5 border-2 border-white/30 border-t-transparent rounded-full animate-spin" />
+                Carregando comentários...
+              </div>
+            ) : commentsError ? (
+              <p className="text-red-400/70 text-sm mb-10">{commentsError}</p>
+            ) : comments.length === 0 ? (
               <p className="text-white/30 text-sm mb-10">Seja o primeiro a comentar.</p>
             ) : (
               <ul className="space-y-6 mb-10">
@@ -248,15 +270,20 @@ export default function BlogPostPage() {
                 maxLength={100}
                 className="w-full bg-white/5 border border-white/10 text-white text-sm px-4 py-2.5 placeholder:text-white/20 focus:outline-none focus:border-blue-500/50 transition-colors"
               />
-              <textarea
-                placeholder="Escreva seu comentário..."
-                value={commentText}
-                onChange={(e) => setCommentText(e.target.value)}
-                required
-                maxLength={1000}
-                rows={4}
-                className="w-full bg-white/5 border border-white/10 text-white text-sm px-4 py-2.5 placeholder:text-white/20 focus:outline-none focus:border-blue-500/50 transition-colors resize-none"
-              />
+              <div className="relative">
+                <textarea
+                  placeholder="Escreva seu comentário..."
+                  value={commentText}
+                  onChange={(e) => setCommentText(e.target.value)}
+                  required
+                  maxLength={1000}
+                  rows={4}
+                  className="w-full bg-white/5 border border-white/10 text-white text-sm px-4 py-2.5 placeholder:text-white/20 focus:outline-none focus:border-blue-500/50 transition-colors resize-none"
+                />
+                <span className="absolute bottom-2.5 right-3 text-xs text-white/20 pointer-events-none">
+                  {commentText.length}/1000
+                </span>
+              </div>
               {submitError && (
                 <p className="text-red-400 text-xs">{submitError}</p>
               )}

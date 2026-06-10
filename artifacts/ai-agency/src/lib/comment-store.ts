@@ -25,7 +25,7 @@ export const commentStore = {
       .select("*")
       .eq("post_id", postId)
       .order("created_at", { ascending: true });
-    if (error) throw error;
+    if (error) throw new Error(error.message);
     return (data ?? []).map(fromRow);
   },
 
@@ -35,7 +35,7 @@ export const commentStore = {
       .insert({ post_id: postId, author_name: authorName, content })
       .select()
       .single();
-    if (error) throw error;
+    if (error) throw new Error(error.message);
     return fromRow(data);
   },
 };
