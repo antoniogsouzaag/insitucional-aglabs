@@ -65,7 +65,7 @@ export default function AboutSection() {
             {/* LEFT BIG IMAGE */}
             <div className="md:flex-1">
               <img
-                src="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/aglabs/Man_with_crossed_202604122236.jpeg"
+                src="https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/aglabs/founder.jpeg"
                 alt="AG LABS"
                 className="rounded-xl object-cover w-full h-[300px] sm:h-[360px] md:h-full"
               />
