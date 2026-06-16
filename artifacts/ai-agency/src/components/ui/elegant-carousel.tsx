@@ -48,6 +48,7 @@ const slides: SlideData[] = [
     accent: "#A78BFA",
     imageUrl:
       "https://i.pinimg.com/1200x/d7/0a/1b/d70a1b402d35e10aff0bd761fe173027.jpg",
+    link: "https://wf.aglabs.ia.br/",
   },
 ];
 
@@ -57,6 +58,8 @@ export default function ElegantCarousel() {
   const [direction, setDirection] = useState<"next" | "prev">("next");
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const progressRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const touchStartX = useRef(0);
@@ -93,7 +96,20 @@ export default function ElegantCarousel() {
   }, [currentIndex, goToSlide]);
 
   useEffect(() => {
-    if (isPaused) return;
+    const el = wrapperRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.4 },
+    );
+    observer.observe(el);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (isPaused || !isInView) return;
 
     progressRef.current = setInterval(() => {
       setProgress((prev) => {
@@ -110,7 +126,7 @@ export default function ElegantCarousel() {
       if (intervalRef.current) clearInterval(intervalRef.current);
       if (progressRef.current) clearInterval(progressRef.current);
     };
-  }, [currentIndex, isPaused, goNext]);
+  }, [currentIndex, isPaused, isInView, goNext]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.targetTouches[0].clientX;
@@ -132,6 +148,7 @@ export default function ElegantCarousel() {
 
   return (
     <div
+      ref={wrapperRef}
       className="carousel-wrapper"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
