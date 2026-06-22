@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link } from 'wouter';
+import { Seo } from "@/components/seo";
 
 export default function TermsOfUse() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Seo
+        title="Termos de Uso | AG LABS Intelligence"
+        description="Termos e condições de uso dos serviços e do site da AG LABS Intelligence."
+        path="/termos-de-uso"
+      />
       <header className="border-b border-border/30 px-6 py-5">
         <div className="mx-auto max-w-4xl flex items-center justify-between">
           <Link href="/">

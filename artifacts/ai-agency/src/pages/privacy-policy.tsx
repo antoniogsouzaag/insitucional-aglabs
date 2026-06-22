@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link } from 'wouter';
+import { Seo } from "@/components/seo";
 
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Seo
+        title="Política de Privacidade | AG LABS Intelligence"
+        description="Saiba como a AG LABS Intelligence coleta, usa e protege os seus dados pessoais."
+        path="/politica-de-privacidade"
+      />
       <header className="border-b border-border/30 px-6 py-5">
         <div className="mx-auto max-w-4xl flex items-center justify-between">
           <Link href="/">

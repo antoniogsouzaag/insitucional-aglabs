@@ -28,6 +28,7 @@ import { CtaEmailCard } from "@/components/ui/call-to-action-cta";
 import { PerspectiveMarqueePlayer } from "@/components/ui/perspective-marquee";
 import { CtaCustomProject } from "@/components/ui/cta-custom-project";
 import { supabase } from "@/lib/supabase";
+import { Seo } from "@/components/seo";
 
 const XIcon = ({ className }: { className?: string }) => (
   <svg
@@ -68,6 +69,11 @@ const HomePage = () => {
 
   return (
     <>
+      <Seo
+        title="AG LABS Intelligence | IA estratégica para negócios em escala"
+        description="Automatize processos, elimine tarefas repetitivas e escale sua empresa com inteligência artificial aplicada ao seu negócio."
+        path="/"
+      />
       <MinimalistHero
         logoText="AG LABS"
         navLinks={navLinks}

@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { blogStore, type BlogPost } from "@/lib/blog-store";
 import { commentStore, type BlogComment } from "@/lib/comment-store";
+import { Seo, SITE_URL } from "@/components/seo";
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("pt-BR", {
@@ -112,6 +113,53 @@ export default function BlogPostPage() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-white">
+      <Seo
+        title={`${post.title} | AG LABS Intelligence`}
+        description={post.excerpt}
+        path={`/blog/${post.slug}`}
+        image={post.coverImage || undefined}
+        type="article"
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            description: post.excerpt,
+            image: post.coverImage || undefined,
+            datePublished: post.createdAt,
+            dateModified: post.updatedAt,
+            author: { "@type": "Person", name: post.author },
+            publisher: {
+              "@type": "Organization",
+              name: "AG LABS Intelligence",
+              logo: {
+                "@type": "ImageObject",
+                url: `${SITE_URL}/android-chrome-512x512.png`,
+              },
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `${SITE_URL}/blog/${post.slug}`,
+            },
+            articleSection: post.category,
+            inLanguage: "pt-BR",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+              { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: post.title,
+                item: `${SITE_URL}/blog/${post.slug}`,
+              },
+            ],
+          },
+        ]}
+      />
       {/* Top bar */}
       <div className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 h-14 border-b border-white/5 bg-[#050505]/80 backdrop-blur-md">
         <Link href="/blog">

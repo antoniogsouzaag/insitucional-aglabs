@@ -273,9 +273,14 @@ export const MinimalistHero = ({
           className="z-20 order-2 md:order-3 flex flex-col items-center text-center md:items-start md:text-left gap-4 self-center"
         >
           <h1 className="text-5xl font-extrabold leading-tight text-foreground sm:text-6xl md:text-5xl lg:text-6xl xl:text-7xl">
-            {overlayText.part1}
-            <br />
-            {overlayText.part2}
+            <span className="sr-only">
+              AG LABS — Agência de Inteligência Artificial e Automação para Negócios.{" "}
+            </span>
+            <span aria-hidden="true">
+              {overlayText.part1}
+              <br />
+              {overlayText.part2}
+            </span>
           </h1>
 
           {/* Mobile-only description */}

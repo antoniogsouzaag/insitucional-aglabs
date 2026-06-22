@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, Clock, Search } from "lucide-react";
 import { MeshGradient, Dithering } from "@paper-design/shaders-react";
 import { blogStore, type BlogPost } from "@/lib/blog-store";
 import BlogsLatest from "@/components/ui/blogs";
+import { Seo } from "@/components/seo";
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("pt-BR", {
@@ -120,6 +121,11 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-[#050505] text-white">
+      <Seo
+        title="Blog | AG LABS Intelligence — IA, Automação e Estratégia"
+        description="Insights sobre inteligência artificial, automação de processos e tecnologia aplicada para escalar o seu negócio."
+        path="/blog"
+      />
       {/* Top bar */}
       <div className="fixed top-0 left-0 right-0 z-50 flex items-center px-6 md:px-12 h-14 border-b border-white/5 bg-[#050505]/80 backdrop-blur-md">
         <Link href="/">

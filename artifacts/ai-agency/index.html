@@ -2,16 +2,15 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>AG LABS Intelligence | IA estratégica para negócios em escala</title>
     <meta
       name="description"
       content="Automatize processos, elimine tarefas repetitivas e escale sua empresa com inteligência artificial aplicada ao seu negócio."
     />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://aglabs.ia.br/" />
 
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -43,6 +42,70 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Structured Data (Schema.org) — lida por buscadores e IA generativa -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://aglabs.ia.br/#organization",
+            "name": "AG LABS Intelligence",
+            "alternateName": "AG LABS",
+            "url": "https://aglabs.ia.br/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://aglabs.ia.br/android-chrome-512x512.png",
+              "width": 512,
+              "height": 512
+            },
+            "image": "https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/aglabs/2.png",
+            "description": "Agência brasileira de inteligência artificial aplicada a negócios: agentes autônomos, automação de processos, integrações de dados e websites de alto desempenho.",
+            "slogan": "Simples e Inteligente",
+            "areaServed": {
+              "@type": "Country",
+              "name": "Brasil"
+            },
+            "sameAs": [
+              "https://www.instagram.com/ag_labs",
+              "https://www.linkedin.com/company/ag-labs",
+              "https://www.facebook.com/profile.php?id=61573483665476",
+              "https://x.com/aglabsrv"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://aglabs.ia.br/#website",
+            "url": "https://aglabs.ia.br/",
+            "name": "AG LABS Intelligence",
+            "description": "IA estratégica para negócios em escala.",
+            "inLanguage": "pt-BR",
+            "publisher": { "@id": "https://aglabs.ia.br/#organization" }
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://aglabs.ia.br/#service",
+            "name": "AG LABS Intelligence",
+            "url": "https://aglabs.ia.br/",
+            "image": "https://udcsokdtdqqdnoqozbxh.supabase.co/storage/v1/object/public/heros-lp/aglabs/2.png",
+            "description": "Automatize processos, elimine tarefas repetitivas e escale sua empresa com inteligência artificial aplicada ao seu negócio.",
+            "areaServed": {
+              "@type": "Country",
+              "name": "Brasil"
+            },
+            "provider": { "@id": "https://aglabs.ia.br/#organization" },
+            "serviceType": [
+              "Agentes de IA",
+              "Automação de processos",
+              "Integrações e dados",
+              "Desenvolvimento de software",
+              "Landing pages e websites"
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

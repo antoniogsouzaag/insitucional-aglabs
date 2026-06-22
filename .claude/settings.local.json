@@ -37,7 +37,8 @@
       "Bash(pnpm add *)",
       "Bash(npx tsc *)",
       "Bash(xargs grep -l \"api\\\\|route\\\\|endpoint\")",
-      "Bash(xargs grep -l \"textarea\\\\|form\\\\|input\")"
+      "Bash(xargs grep -l \"textarea\\\\|form\\\\|input\")",
+      "WebFetch(domain:aglabs.ia.br)"
     ]
   }
 }
