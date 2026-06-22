@@ -77,20 +77,16 @@ export default function AboutSection() {
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 250, damping: 20 }}
-                className="relative overflow-hidden rounded-xl bg-black text-white shadow-lg"
+                className="group relative overflow-hidden rounded-xl bg-black text-white shadow-lg"
               >
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
-                  className="relative h-60 sm:h-64 md:h-48 w-full overflow-hidden"
-                >
+                <div className="relative h-60 sm:h-64 md:h-48 w-full overflow-hidden">
                   <img
                     src="https://i.pinimg.com/736x/10/9e/e3/109ee385971d50218b28256a0073873c.jpg"
                     alt="Acelere o crescimento"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute bottom-0 h-32 w-full bg-gradient-to-t from-black via-black/70 to-transparent" />
-                </motion.div>
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black via-black/70 to-transparent" />
+                </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold">Acelere o Crescimento</h3>
                   <p className="mt-2 text-sm text-gray-300">
