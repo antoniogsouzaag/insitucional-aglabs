@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-react";
 import { HoverButton } from "@/components/ui/hover-button";
 
 const WHATSAPP_URL =
-  "https://wa.me/556493259857?text=Olá!%20Tenho%20interesse%20em%20um%20projeto%20personalizado%20com%20a%20AG%20LABS.";
+  "https://wa.me/5564993259857?text=Olá!%20Tenho%20interesse%20em%20um%20projeto%20personalizado%20com%20a%20AG%20LABS.";
 
 export function CtaCustomProject() {
   return (

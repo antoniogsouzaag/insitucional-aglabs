@@ -131,7 +131,7 @@ export default function BlogPage() {
         <Link href="/">
           <span className="flex items-center gap-2 text-white/40 hover:text-white text-sm transition-colors cursor-pointer">
             <ArrowLeft className="w-4 h-4" />
-            AG Labs
+            AG LABS
           </span>
         </Link>
       </div>
@@ -162,7 +162,7 @@ export default function BlogPage() {
           {/* Texto — z-20, sempre acima de tudo */}
           <div className="relative z-20 max-w-6xl mx-auto px-6 md:px-12 py-20 md:py-28">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400 mb-6">
-              Blog — AG Labs
+              Blog — AG LABS
             </p>
             <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-none text-white mb-6 max-w-3xl">
               Inteligência<br />
@@ -306,7 +306,7 @@ export default function BlogPage() {
       </main>
 
       <footer className="border-t border-white/5 py-8 text-center text-xs text-white/15 mt-12">
-        © {new Date().getFullYear()} AG Labs — Inteligência Artificial aplicada
+        © {new Date().getFullYear()} AG LABS — Inteligência Artificial aplicada
       </footer>
     </div>
   );

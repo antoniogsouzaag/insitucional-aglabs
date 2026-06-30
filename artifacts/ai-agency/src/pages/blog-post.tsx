@@ -249,13 +249,13 @@ export default function BlogPostPage() {
               Pronto para transformar seu negócio?
             </p>
             <h3 className="text-2xl md:text-3xl font-black text-white mb-4 leading-tight">
-              Fale com um especialista<br className="hidden md:block" /> da AG Labs
+              Fale com um especialista<br className="hidden md:block" /> da AG LABS
             </h3>
             <p className="text-white/40 text-sm mb-8 max-w-sm leading-relaxed">
               Automatize processos, crie agentes de IA e construa soluções sob medida para o seu negócio.
             </p>
             <a
-              href="https://wa.me/556493259857?text=Olá!%20Tenho%20interesse%20em%20um%20projeto%20personalizado%20com%20a%20AG%20LABS."
+              href="https://wa.me/5564993259857?text=Olá!%20Tenho%20interesse%20em%20um%20projeto%20personalizado%20com%20a%20AG%20LABS."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-colors"

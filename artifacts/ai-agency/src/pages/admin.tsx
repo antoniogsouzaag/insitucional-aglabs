@@ -213,7 +213,7 @@ function LoginScreen({ onLogin }: { onLogin: (email: string, password: string) =
       <div className="absolute size-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/10 blur-3xl pointer-events-none" />
       <div className="relative w-full max-w-sm">
         <div className="mb-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400 mb-3">AG Labs</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400 mb-3">AG LABS</p>
           <h1 className="text-3xl font-black text-white tracking-tight">Painel Admin</h1>
           <p className="text-white/30 text-sm mt-1">Entre com sua conta Supabase</p>
         </div>
