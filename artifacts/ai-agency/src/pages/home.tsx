@@ -71,7 +71,7 @@ const HomePage = () => {
     <>
       <Seo
         title="AG LABS Intelligence | IA estratégica para negócios em escala"
-        description="Automatize processos, elimine tarefas repetitivas e escale sua empresa com inteligência artificial aplicada ao seu negócio."
+        description="Agentes de IA, automação de processos e websites de alto desempenho para escalar o seu negócio — inteligência artificial aplicada, do atendimento à operação."
         path="/"
       />
       <MinimalistHero

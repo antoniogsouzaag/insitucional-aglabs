@@ -40,10 +40,28 @@ Esta mudança está na branch **`feat/blog-prerender`**.
 3. Confirme que a navegação normal (com JS) continua igual.
 4. Se ok, **merge na `main`**.
 
-## Atualizar conteúdo (importante)
-O HTML é gerado **no build** → ao **publicar/editar** um post, dispare um **rebuild**.
-Opções: (a) redeploy manual no Cloudflare; (b) **Deploy Hook** do Pages chamado por um
-**webhook do Supabase** (Database Webhook em `blog_posts`) para rebuild automático.
+## Atualizar conteúdo ao publicar (rebuild-on-publish)
+O HTML é gerado **no build** → ao **publicar/editar/despublicar** um post é preciso
+disparar um **rebuild** para o conteúdo aparecer no HTML estático.
+
+### Opção A — manual
+Cloudflare Pages → **Deployments** → *Retry deployment* / *Create deployment*.
+
+### Opção B — automático (recomendado)
+1. **Deploy Hook (Cloudflare Pages):** projeto → *Settings* → *Builds & deployments* →
+   *Deploy hooks* → *Add deploy hook* → nome `rebuild-blog`, branch `main` → **Create**.
+   Copie a URL gerada (um endpoint que, via `POST`, dispara um build de produção).
+2. **Database Webhook (Supabase):** Dashboard → *Database* → *Webhooks* →
+   *Create a new hook*:
+   - Tabela: `blog_posts`
+   - Eventos: `INSERT`, `UPDATE`, `DELETE`
+   - Tipo: **HTTP Request** → método **POST** → **URL = a URL do Deploy Hook** (passo 1)
+   - (não precisa de corpo nem headers)
+3. Salvar. Agora publicar/editar um post chama o webhook → o Pages rebuilda →
+   o `prerender-blog.mjs` regenera o HTML automaticamente.
+
+> Dica: várias edições seguidas geram vários builds. Para reduzir, dispare o webhook
+> apenas quando `published` mudar (condição no Supabase) ou aceite o pequeno atraso do build.
 
 ## Rodar localmente
 ```bash
