@@ -47,7 +47,7 @@ const footerLinks: FooterSection[] = [
     links: [
       { title: 'Corporate Agent', href: 'https://rag.aglabs.api.br/', external: true },
       { title: 'Websites que Vendem', href: 'https://lp.aglabs.ia.br/', external: true },
-      { title: 'Software Performance', href: '#' },
+      { title: 'Software Performance', href: 'https://templates.aglabs.ia.br/', external: true },
       { title: 'Workflows Inteligence', href: 'https://wf.aglabs.ia.br/' },
     ],
   },

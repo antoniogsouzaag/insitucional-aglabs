@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, Clock, Search } from "lucide-react";
 import { MeshGradient, Dithering } from "@paper-design/shaders-react";
 import { blogStore, type BlogPost } from "@/lib/blog-store";
 import BlogsLatest from "@/components/ui/blogs";
+import { FaqSection, blogFaq, faqJsonLd } from "@/components/ui/faq-section";
 import { Seo } from "@/components/seo";
 
 function formatDate(iso: string) {
@@ -125,6 +126,7 @@ export default function BlogPage() {
         title="Blog | AG LABS Intelligence — IA, Automação e Estratégia"
         description="Insights sobre inteligência artificial, automação de processos e tecnologia aplicada para escalar o seu negócio."
         path="/blog"
+        jsonLd={faqJsonLd(blogFaq)}
       />
       {/* Top bar */}
       <div className="fixed top-0 left-0 right-0 z-50 flex items-center px-6 md:px-12 h-14 border-b border-white/5 bg-[#050505]/80 backdrop-blur-md">
@@ -303,6 +305,13 @@ export default function BlogPage() {
             </div>
           )}
         </div>
+
+        <FaqSection
+          items={blogFaq}
+          eyebrow="FAQ"
+          title="Perguntas frequentes sobre o blog"
+          className="w-full py-16 md:py-24 border-t border-white/8"
+        />
       </main>
 
       <footer className="border-t border-white/5 py-8 text-center text-xs text-white/15 mt-12">

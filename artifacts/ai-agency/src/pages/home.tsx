@@ -27,6 +27,7 @@ import { CtaCard } from "@/components/ui/cta-card";
 import { CtaEmailCard } from "@/components/ui/call-to-action-cta";
 import { PerspectiveMarqueePlayer } from "@/components/ui/perspective-marquee";
 import { CtaCustomProject } from "@/components/ui/cta-custom-project";
+import { FaqSection, institutionalFaq } from "@/components/ui/faq-section";
 import { supabase } from "@/lib/supabase";
 import { Seo } from "@/components/seo";
 
@@ -222,6 +223,13 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      <FaqSection
+        items={institutionalFaq}
+        eyebrow="Perguntas frequentes"
+        title="Dúvidas sobre IA para o seu negócio"
+        subtitle="Agentes de IA, automação de processos e atendimento inteligente — respostas rápidas sobre como a AG LABS ajuda a sua empresa."
+      />
 
       <Footer />
     </>

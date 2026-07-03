@@ -39,6 +39,7 @@ const slides: SlideData[] = [
     accent: "#7A9E7E",
     imageUrl:
       "https://i.pinimg.com/736x/3a/61/d8/3a61d803b23fc77c5df360a8c0a2fe8a.jpg",
+    link: "https://templates.aglabs.ia.br/",
   },
   {
     title: "Workflows Inteligence",

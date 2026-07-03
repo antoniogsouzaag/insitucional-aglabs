@@ -5,7 +5,7 @@
 AG LABS Intelligence ("AG LABS") ajuda empresas a automatizar processos, eliminar
 tarefas repetitivas e crescer com inteligência artificial aplicada ao negócio.
 Atuação: Brasil. Idioma principal: português do Brasil (pt-BR).
-Slogan: "Simples e Inteligente".
+Slogan: "IA aplicada — agentes, automações e sistemas para negócios em escala".
 
 ## Serviços
 - Agentes de IA autônomos e assistentes inteligentes
