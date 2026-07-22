@@ -67,6 +67,19 @@
               "@type": "Country",
               "name": "Brasil"
             },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Rio Verde",
+              "addressRegion": "GO",
+              "addressCountry": "BR"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+55-64-99325-9857",
+              "contactType": "sales",
+              "areaServed": "BR",
+              "availableLanguage": ["pt-BR"]
+            },
             "sameAs": [
               "https://www.instagram.com/ag_labs",
               "https://www.linkedin.com/company/ag-labs",
@@ -165,6 +178,37 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Conteúdo estático para crawlers e motores de IA (GPT, Claude, Perplexity)
+         que não executam JavaScript — espelha o conteúdo da home renderizada. -->
+    <noscript>
+      <main>
+        <h1>AG LABS Intelligence — Agência de Inteligência Artificial e Automação</h1>
+        <p>
+          A AG LABS é uma agência brasileira de inteligência artificial aplicada a negócios.
+          Construímos agentes de IA autônomos, automação de processos, integrações de dados e
+          websites de alto desempenho para empresas que querem escalar — do atendimento à operação.
+        </p>
+        <h2>Soluções</h2>
+        <ul>
+          <li>Agentes de IA autônomos e assistentes inteligentes (inclusive atendente de IA no WhatsApp)</li>
+          <li>Automação de processos e fluxos de trabalho — <a href="https://wf.aglabs.ia.br/">wf.aglabs.ia.br</a></li>
+          <li>Integrações, dados e analytics</li>
+          <li>Desenvolvimento de software e interfaces de alto desempenho</li>
+          <li>Landing pages e websites que convertem — <a href="https://lp.aglabs.ia.br/">lp.aglabs.ia.br</a></li>
+          <li>Templates React para devs (VibeKit) — <a href="https://templates.aglabs.ia.br/">templates.aglabs.ia.br</a></li>
+        </ul>
+        <h2>Sobre</h2>
+        <p>
+          Fundada por Antonio Garcia, com origem em Rio Verde (GO), a AG LABS atende empresas em
+          todo o Brasil de forma remota. Conteúdo sobre IA, automação e estratégia no
+          <a href="https://aglabs.ia.br/blog">blog</a>.
+        </p>
+        <h2>Contato</h2>
+        <p>WhatsApp: <a href="https://wa.me/5564993259857">+55 64 99325-9857</a> · Formulário no site.</p>
+      </main>
+    </noscript>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
